@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Home from './src/screen/home';
+import Game from './src/screen/Game';
 
 export default class App extends React.Component {
   render() {
-    return <Home />;
+    return <Game />;
   }
 }

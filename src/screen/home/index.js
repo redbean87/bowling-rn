@@ -1,9 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 import Button from '../../component/Button';
 
-export default class Home extends React.Component {
+import { randomColorGenerator } from './utils';
+
+export default class Home extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +41,3 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   }
 });
-
-const randomColorGenerator = () => {
-  return `#${(0x1000000 + Math.random() * 0xffffff).toString(16).substr(1, 6)}`;
-};
