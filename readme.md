@@ -1,6 +1,8 @@
 # Run Application
 
-yarn start
+- yarn start
+- browser will will open
+- select device to send to
 
 # Domain Information
 

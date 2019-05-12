@@ -1,25 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Game from './Game';
 
-export default class Game extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import data from './data';
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Game Container</Text>
-      </View>
-    );
-  }
-}
+const DataWrapper = () => {
+  return <Game content={data.content} />;
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
-});
+export default DataWrapper;
