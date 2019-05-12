@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import Pin from './Pin';
 
@@ -10,23 +10,22 @@ export default class RowThree extends React.PureComponent {
   }
 
   render() {
+    const { pins = [] } = this.props;
+    console.log('RowThree');
+    const [pinFour, pinFive, pinSix] = pins;
     return (
       <View style={styles.container}>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin />
+          <Pin pin={pinFour} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin />
+          <Pin pin={pinFive} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin />
-        </View>
-        <View style={styles.column} />
-        <View style={styles.column}>
-          <Pin />
+          <Pin pin={pinSix} />
         </View>
         <View style={styles.column} />
       </View>

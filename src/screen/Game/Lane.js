@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { createSelector } from 'reselect';
 
 import RowOne from './RowOne';
 import RowTwo from './RowTwo';
@@ -12,13 +13,27 @@ export default class Lane extends React.PureComponent {
     this.state = {};
   }
 
+  pinsSelector = (props = {}) => {
+    const { frame = {} } = props;
+    return frame.pins;
+  };
+
+  pinsByRow = createSelector(
+    this.pinsSelector,
+    (pins = []) => {
+      return [pins.slice(6), pins.slice(3, 6), pins.slice(1, 3), pins[0]];
+    }
+  );
+
   render() {
+    const [rowFour, rowThree, rowTwo, rowOne] = this.pinsByRow(this.props);
+    console.log('Lane');
     return (
       <View style={styles.container}>
-        <RowFour />
-        <RowThree />
-        <RowTwo />
-        <RowOne />
+        <RowFour pins={rowFour} />
+        <RowThree pins={rowThree} />
+        <RowTwo pins={rowTwo} />
+        <RowOne pin={rowOne} />
       </View>
     );
   }

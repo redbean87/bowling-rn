@@ -1,10 +1,12 @@
 import React from 'react';
-import Game from './Game';
 
-import data from './data';
+import Game from './Game';
+import * as data from './data';
 
 const DataWrapper = () => {
-  return <Game content={data.content} />;
+  const { frames = [] } = data.getGame();
+  console.log('DataWrapper');
+  return <Game frames={frames} />;
 };
 
 export default DataWrapper;

@@ -29,13 +29,24 @@
 
 ## Pin Setup
 
-### 9 columns 5 row
+### 7 columns 4 row
 
-| Pin | Pin | Pin | Pin | Pin | Pin | Pin | Pin | Pin |
-| :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
-|  O  |     |  O  |     |  O  |     |  O  |     |  O  |
-|     |  O  |     |  O  |     |  O  |     |  O  |     |
-|     |     |  O  |     |  O  |     |  O  |     |     |
-|     |     |     |  O  |     |  O  |     |     |     |
-|     |     |     |     |  O  |     |     |     |     |
-|     |     |     |     |     |     |     |     |     |
+| Pin | Pin | Pin | Pin | Pin | Pin | Pin |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+|  O  |     |  O  |     |  O  |     |  O  |
+|     |  O  |     |  O  |     |  O  |     |
+|     |     |  O  |     |  O  |     |     |
+|     |     |     |  O  |     |     |     |
+|     |     |     |     |     |     |     |
+
+## Game Terms
+
+### Game
+
+####
+
+- 10 Frames
+
+### Frame
+
+- 10 pins

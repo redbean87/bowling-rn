@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 export default class Pin extends React.PureComponent {
   constructor(props) {
@@ -8,6 +8,8 @@ export default class Pin extends React.PureComponent {
   }
 
   render() {
+    const { pin = {} } = this.props;
+    console.log('pin', pin.position, pin);
     return (
       <View style={styles.container}>
         <View style={styles.outside}>

@@ -6,14 +6,19 @@ import Lane from './Lane';
 export default class Game extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      selectedFrame: 0
+    };
   }
 
   render() {
-    const { content } = this.props;
+    const { frames = [] } = this.props;
+    const { selectedFrame } = this.state;
+    const frame = frames[selectedFrame];
+    console.log('Game');
     return (
       <View style={styles.container}>
-        <Lane content={content} />
+        <Lane frame={frame} />
       </View>
     );
   }
