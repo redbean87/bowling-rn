@@ -27,7 +27,7 @@ export default class Lane extends React.PureComponent {
 
   render() {
     const [rowFour, rowThree, rowTwo, rowOne] = this.pinsByRow(this.props);
-    console.log('Lane');
+    // console.log('Lane');
     return (
       <View style={styles.container}>
         <RowFour pins={rowFour} />

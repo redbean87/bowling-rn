@@ -11,7 +11,7 @@ export default class RowThree extends React.PureComponent {
 
   render() {
     const { pins = [] } = this.props;
-    console.log('RowThree');
+    // console.log('RowThree');
     const [pinFour, pinFive, pinSix] = pins;
     return (
       <View style={styles.container}>

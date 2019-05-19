@@ -11,7 +11,7 @@ export default class RowOne extends React.PureComponent {
 
   render() {
     const { pin = {} } = this.props;
-    console.log('RowOne');
+    // console.log('RowOne');
     return (
       <View style={styles.container}>
         <View style={styles.column} />

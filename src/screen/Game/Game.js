@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import Button from '../../component/Button';
+
 import Lane from './Lane';
 
 export default class Game extends React.PureComponent {
@@ -12,13 +14,18 @@ export default class Game extends React.PureComponent {
   }
 
   render() {
-    const { frames = [] } = this.props;
+    const { count, frames = [], updateGame = {} } = this.props;
     const { selectedFrame } = this.state;
     const frame = frames[selectedFrame];
-    console.log('Game');
+    // console.log('Game');
     return (
       <View style={styles.container}>
         <Lane frame={frame} />
+        <Button
+          onPress={updateGame}
+          title={`Update Game ${count}`}
+          color={'black'}
+        />
       </View>
     );
   }

@@ -11,7 +11,7 @@ export default class RowTwo extends React.PureComponent {
 
   render() {
     const { pins = [] } = this.props;
-    console.log('RowTwo');
+    // console.log('RowTwo');F
     const [pinTwo, pinThree] = pins;
     return (
       <View style={styles.container}>

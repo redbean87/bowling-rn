@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Button} from 'react-native';
+import React, { Component } from 'react';
+import { Button } from 'react-native';
 
 export default class extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class extends Component {
         onPress={this.props.onPress}
         title={this.props.title}
         color={this.props.color}
-        accessibilityLabel="Learn more about this purple button"
+        accessibilityLabel={this.props.accessibilityLabel}
       />
     );
   }
