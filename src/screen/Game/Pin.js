@@ -18,7 +18,7 @@ export default class Pin extends React.PureComponent {
       </View>
     );
 
-    // console.log('pin', pin.position, pin);
+    console.log('pin', pin.position, pin.down);
     return <View style={styles.container}>{down ? pinDown : pinUp}</View>;
   }
 }

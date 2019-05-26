@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Game from './Game';
-import * as data from './data';
+import * as data from '../../data';
 
 export default class DataWrapper extends React.PureComponent {
   constructor(props) {
@@ -11,20 +11,12 @@ export default class DataWrapper extends React.PureComponent {
   componentDidMount() {
     data.setSetState(this.setState);
   }
-  handleUpdateGame = () => {
-    this.setState(data.actions.updateGame(), () => {
-      // console.log('updatedState');
-    });
+  handleUpdatePin = () => {
+    this.setState(data.actions.updatePin());
   };
   render() {
     const { frames = [] } = this.state;
-    // console.log('DataWrapper');
-    return (
-      <Game
-        frames={frames}
-        updateGame={this.handleUpdateGame}
-        count={this.state.count}
-      />
-    );
+    console.log('DataWrapper');
+    return <Game frames={frames} />;
   }
 }
