@@ -1,18 +1,16 @@
 import React from 'react';
 
 import Game from './Game';
-import * as data from '../../data';
+import * as dataManager from '../../dataManagement';
 
 export default class DataWrapper extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = data.getGame();
+    this.state = dataManager.newGame();
   }
-  componentDidMount() {
-    data.setSetState(this.setState);
-  }
+  componentDidMount() {}
   handleUpdatePin = () => {
-    this.setState(data.actions.updatePin());
+    this.setState(dataManager.actions.updatePin());
   };
   render() {
     const { frames = [] } = this.state;

@@ -8,8 +8,4 @@ const data = (frameId, id = 0) => ({
   down: utils.randomBool()
 });
 
-export const withId = (frameId, id) => {
-  return data(frameId, id);
-};
-
 export default data;

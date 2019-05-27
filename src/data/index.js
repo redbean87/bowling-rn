@@ -1,17 +1,9 @@
-import * as game from './game';
+import game from './game';
+import frame from './frame';
+import pin from './pin';
 
-export const data = { ...game.withId(0), count: 0 };
-
-export const updatePin = () => {
-  // console.log('updatePin');
-  return data;
+export default {
+  game,
+  frame,
+  pin
 };
-
-export const getGame = () => {
-  return data;
-};
-
-export const actions = {
-  updatePin
-};
-export default data;
