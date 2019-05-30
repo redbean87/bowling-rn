@@ -8,13 +8,12 @@ export default class DataWrapper extends React.PureComponent {
     super(props);
     this.state = dataManager.newGame();
   }
-  componentDidMount() {}
-  handleUpdatePin = () => {
-    this.setState(dataManager.actions.updatePin());
+  handlePinPress = (frameIndex, pinIndex, pin) => {
+    this.setState(dataManager.actions.updatePin(frameIndex, pinIndex, pin));
   };
   render() {
     const { frames = [] } = this.state;
     console.log('DataWrapper');
-    return <Game frames={frames} />;
+    return <Game frames={frames} handlePinPress={this.handlePinPress} />;
   }
 }

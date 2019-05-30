@@ -26,14 +26,15 @@ export default class Lane extends React.PureComponent {
   );
 
   render() {
+    const { handlePinPress } = this.props;
     const [rowFour, rowThree, rowTwo, rowOne] = this.pinsByRow(this.props);
-    console.log('Lane', this.props.frame);
+    console.log('Lane');
     return (
       <View style={styles.container}>
-        <RowFour pins={rowFour} />
-        <RowThree pins={rowThree} />
-        <RowTwo pins={rowTwo} />
-        <RowOne pin={rowOne} />
+        <RowFour pins={rowFour} handlePinPress={handlePinPress} />
+        <RowThree pins={rowThree} handlePinPress={handlePinPress} />
+        <RowTwo pins={rowTwo} handlePinPress={handlePinPress} />
+        <RowOne pin={rowOne} handlePinPress={handlePinPress} />
       </View>
     );
   }

@@ -9,16 +9,22 @@ export default class RowOne extends React.PureComponent {
     this.state = {};
   }
 
+  handlePinPress = pinIndex => {
+    return pin => {
+      return this.props.handlePinPress(pinIndex, pin);
+    };
+  };
+
   render() {
     const { pin = {} } = this.props;
-    // console.log('RowOne');
+    console.log('RowOne');
     return (
       <View style={styles.container}>
         <View style={styles.column} />
         <View style={styles.column} />
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pin} />
+          <Pin pin={pin} handlePinPress={this.handlePinPress(0)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column} />

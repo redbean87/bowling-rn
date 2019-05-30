@@ -9,26 +9,32 @@ export default class RowFour extends React.PureComponent {
     this.state = {};
   }
 
+  handlePinPress = pinIndex => {
+    return pin => {
+      return this.props.handlePinPress(pinIndex, pin);
+    };
+  };
+
   render() {
     const { pins = [] } = this.props;
-    // console.log('RowFour');
+    console.log('RowFour');
     const [pinSeven, pinEight, pinNine, pinTen] = pins;
     return (
       <View style={styles.container}>
         <View style={styles.column}>
-          <Pin pin={pinSeven} />
+          <Pin pin={pinSeven} handlePinPress={this.handlePinPress(6)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinEight} />
+          <Pin pin={pinEight} handlePinPress={this.handlePinPress(7)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinNine} />
+          <Pin pin={pinNine} handlePinPress={this.handlePinPress(8)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinTen} />
+          <Pin pin={pinTen} handlePinPress={this.handlePinPress(9)} />
         </View>
       </View>
     );

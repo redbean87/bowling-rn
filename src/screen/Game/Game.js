@@ -29,14 +29,22 @@ export default class Game extends React.PureComponent {
       selectedFramePosition: this.state.selectedFramePosition + 1
     });
   };
+  handlePinPress = frameIndex => {
+    return (pinIndex, pin) => {
+      this.props.handlePinPress(frameIndex, pinIndex, pin);
+    };
+  };
   render() {
-    const { count, frames = [] } = this.props;
+    const { frames = [] } = this.props;
     const { selectedFramePosition } = this.state;
     const frame = frames[selectedFramePosition];
     console.log('Game');
     return (
       <View style={styles.container}>
-        <Lane frame={frame} />
+        <Lane
+          frame={frame}
+          handlePinPress={this.handlePinPress(selectedFramePosition)}
+        />
         <View style={styles.footer}>
           <View style={styles.prev}>
             <Button

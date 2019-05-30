@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
 export default class Pin extends React.PureComponent {
   constructor(props) {
@@ -7,8 +7,18 @@ export default class Pin extends React.PureComponent {
     this.state = {};
   }
 
+  static defaultProps = {
+    handlePinPress: () => {},
+    pin: {}
+  };
+
+  onPress = pin => {
+    const { down } = pin;
+    return this.props.handlePinPress({ ...pin, down: !down });
+  };
+
   render() {
-    const { pin = {} } = this.props;
+    const { pin } = this.props;
     const { down } = pin;
 
     const pinDown = <View style={styles.down} />;
@@ -18,8 +28,12 @@ export default class Pin extends React.PureComponent {
       </View>
     );
 
-    console.log('pin', pin.position, pin.down);
-    return <View style={styles.container}>{down ? pinDown : pinUp}</View>;
+    console.log('pin', pin.position);
+    return (
+      <TouchableOpacity activeOpacity={1} onPress={() => this.onPress(pin)}>
+        <View style={styles.container}>{down ? pinDown : pinUp}</View>
+      </TouchableOpacity>
+    );
   }
 }
 
@@ -48,10 +62,10 @@ const styles = StyleSheet.create({
   down: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'black',
     borderRadius: 100,
-    padding: 10,
+    padding: 18,
     backgroundColor: 'black'
   }
 });

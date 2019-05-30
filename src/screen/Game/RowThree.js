@@ -9,23 +9,29 @@ export default class RowThree extends React.PureComponent {
     this.state = {};
   }
 
+  handlePinPress = pinIndex => {
+    return pin => {
+      return this.props.handlePinPress(pinIndex, pin);
+    };
+  };
+
   render() {
     const { pins = [] } = this.props;
-    // console.log('RowThree');
+    console.log('RowThree');
     const [pinFour, pinFive, pinSix] = pins;
     return (
       <View style={styles.container}>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFour} />
+          <Pin pin={pinFour} handlePinPress={this.handlePinPress(3)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFive} />
+          <Pin pin={pinFive} handlePinPress={this.handlePinPress(4)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinSix} />
+          <Pin pin={pinSix} handlePinPress={this.handlePinPress(5)} />
         </View>
         <View style={styles.column} />
       </View>
