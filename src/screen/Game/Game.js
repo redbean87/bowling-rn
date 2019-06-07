@@ -1,18 +1,28 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 import Button from '../../component/Button';
 
 import Lane from './Lane';
 
 export default class Game extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedFramePosition: 0,
-      maxFramePosition: 10
-    };
-  }
+  static propTypes = {
+    frames: PropTypes.arrayOf(PropTypes.object),
+    handlePinPress: PropTypes.func
+  };
+
+  static defaultProps = {
+    frames: [],
+    handlePinPress: () => {}
+  };
+
+  MAX_FRAME_POSITION = 10;
+
+  state = {
+    selectedFramePosition: 2
+  };
+
   handlePreviousFramePosition = () => {
     if (this.state.selectedFramePosition <= 0) {
       return;
@@ -21,19 +31,22 @@ export default class Game extends React.PureComponent {
       selectedFramePosition: this.state.selectedFramePosition - 1
     });
   };
+
   handleNextFramePosition = () => {
-    if (this.state.selectedFramePosition >= this.state.maxFramePosition - 1) {
+    if (this.state.selectedFramePosition >= this.MAX_FRAME_POSITION - 1) {
       return;
     }
     this.setState({
       selectedFramePosition: this.state.selectedFramePosition + 1
     });
   };
+
   handlePinPress = frameIndex => {
     return (pinIndex, pin) => {
       this.props.handlePinPress(frameIndex, pinIndex, pin);
     };
   };
+
   render() {
     const { frames = [] } = this.props;
     const { selectedFramePosition } = this.state;

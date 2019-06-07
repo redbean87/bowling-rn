@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import PropTypes from 'prop-types';
 
 export default class Pin extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  static propTypes = {
+    pin: PropTypes.object,
+    handlePinPress: PropTypes.func
+  };
 
   static defaultProps = {
     handlePinPress: () => {},

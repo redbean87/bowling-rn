@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createSelector } from 'reselect';
+import PropTypes from 'prop-types';
 
 import RowOne from './RowOne';
 import RowTwo from './RowTwo';
@@ -8,13 +9,18 @@ import RowThree from './RowThree';
 import RowFour from './RowFour';
 
 export default class Lane extends React.PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  static propTypes = {
+    frame: PropTypes.object,
+    handlePinPress: PropTypes.func
+  };
+
+  static defaultProps = {
+    frame: {},
+    handlePinPress: () => {}
+  };
 
   pinsSelector = (props = {}) => {
-    const { frame = {} } = props;
+    const { frame } = props;
     return frame.pins;
   };
 
