@@ -23,6 +23,8 @@
     },
     "android": {
       "package": "com.cortezashley.bowling"
-    }
+    },
+    "description": "React Native Bowling Score Keeper",
+    "githubUrl": "https://github.com/redbean87/bowling-rn.git"
   }
 }
