@@ -8,6 +8,8 @@
   },
   "dependencies": {
     "expo": "^34.0.3",
+    "immer": "^3.2.0",
+    "prop-types": "^15.7.2",
     "react": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
     "reselect": "^4.0.0"

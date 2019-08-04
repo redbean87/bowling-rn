@@ -1,15 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Button } from 'react-native';
 
-export default class extends Component {
-  render() {
-    return (
-      <Button
-        onPress={this.props.onPress}
-        title={this.props.title}
-        color={this.props.color}
-        accessibilityLabel={this.props.accessibilityLabel}
-      />
-    );
-  }
-}
+export const ButtonIndex = ({ onPress, title, color, accessibilityLabel }) => {
+  return (
+    <Button
+      onPress={onPress}
+      title={title}
+      color={color}
+      accessibilityLabel={accessibilityLabel}
+    />
+  );
+};
+
+ButtonIndex.propTypes = {
+  onPress: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  color: PropTypes.string,
+  accessibilityLabel: PropTypes.string
+};
+
+ButtonIndex.defaultProps = {
+  onPress: () => {},
+  title: ''
+};
+
+export default ButtonIndex;

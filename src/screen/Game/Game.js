@@ -1,105 +1,76 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Button from '../../component/Button';
-
 import Lane from './Lane';
+import Footer from './Footer';
 
-export default class Game extends React.PureComponent {
-  static propTypes = {
-    frames: PropTypes.arrayOf(PropTypes.object),
-    handlePinPress: PropTypes.func
-  };
+const MAX_FRAME_POSITION = 10;
 
-  static defaultProps = {
-    frames: [],
-    handlePinPress: () => {}
-  };
+export const Game = ({ actions, frames }) => {
+  const [selectedFrame, updateSelectedFrame] = useState(0);
+  const frame = frames[selectedFrame];
+  return (
+    <View style={styles.container}>
+      <Lane
+        frame={frame}
+        handlePinPress={handlePinPress(actions, selectedFrame)}
+      />
+      <Footer
+        selectedFrame={selectedFrame}
+        onPreviousFramePress={handlePreviousFramePress(
+          updateSelectedFrame,
+          selectedFrame
+        )}
+        onNextFramePress={handleNextFramePress(
+          updateSelectedFrame,
+          selectedFrame
+        )}
+      />
+    </View>
+  );
+};
 
-  MAX_FRAME_POSITION = 10;
+Game.propTypes = {
+  frames: PropTypes.arrayOf(PropTypes.object),
+  actions: PropTypes.object
+};
 
-  state = {
-    selectedFramePosition: 2
-  };
+Game.defaultProps = {
+  frames: [],
+  actions: {}
+};
 
-  handlePreviousFramePosition = () => {
-    if (this.state.selectedFramePosition <= 0) {
+export default Game;
+
+const handlePreviousFramePress = (updateSelectedFrame, selectedFrame) => {
+  return () => {
+    if (selectedFrame <= 0) {
       return;
     }
-    this.setState({
-      selectedFramePosition: this.state.selectedFramePosition - 1
-    });
+    updateSelectedFrame(selectedFrame - 1);
   };
+};
 
-  handleNextFramePosition = () => {
-    if (this.state.selectedFramePosition >= this.MAX_FRAME_POSITION - 1) {
+const handleNextFramePress = (updateSelectedFrame, selectedFrame) => {
+  return () => {
+    if (selectedFrame >= MAX_FRAME_POSITION - 1) {
       return;
     }
-    this.setState({
-      selectedFramePosition: this.state.selectedFramePosition + 1
-    });
+    updateSelectedFrame(selectedFrame + 1);
   };
+};
 
-  handlePinPress = frameIndex => {
-    return (pinIndex, pin) => {
-      this.props.handlePinPress(frameIndex, pinIndex, pin);
-    };
+const handlePinPress = (actions, frameIndex) => {
+  return (pinIndex, pin) => {
+    actions.handlePinPress(frameIndex, pinIndex, pin);
   };
-
-  render() {
-    const { frames = [] } = this.props;
-    const { selectedFramePosition } = this.state;
-    const frame = frames[selectedFramePosition];
-    console.log('Game');
-    return (
-      <View style={styles.container}>
-        <Lane
-          frame={frame}
-          handlePinPress={this.handlePinPress(selectedFramePosition)}
-        />
-        <View style={styles.footer}>
-          <View style={styles.prev}>
-            <Button
-              onPress={this.handlePreviousFramePosition}
-              title={`Frame ${selectedFramePosition}`}
-            />
-          </View>
-          <View style={styles.game}>
-            <Button
-              onPress={() => {}}
-              title={`Frame ${selectedFramePosition + 1}`}
-            />
-          </View>
-          <View style={styles.next}>
-            <Button
-              onPress={this.handleNextFramePosition}
-              title={`Frame ${selectedFramePosition + 2}`}
-            />
-          </View>
-        </View>
-      </View>
-    );
-  }
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
-  },
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  prev: {
-    flex: 1
-  },
-  game: {
-    flex: 1
-  },
-  next: {
-    flex: 1
   }
 });

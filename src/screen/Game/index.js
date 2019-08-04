@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Game from './Game';
 import * as dataManager from '../../dataManagement';
 
-export default class DataWrapper extends React.PureComponent {
-  state = dataManager.newGame();
+import Game from './Game';
 
-  handlePinPress = (frameIndex, pinIndex, pin) => {
-    this.setState(dataManager.actions.updatePin(frameIndex, pinIndex, pin));
+const newGameData = dataManager.newGame();
+
+export const GameIndex = () => {
+  const [gameData, updateGame] = useState(newGameData);
+  const { frames = [] } = gameData;
+  return <Game actions={actions(updateGame)} frames={frames} />;
+};
+
+export default GameIndex;
+
+const actions = updateGame => {
+  return {
+    handlePinPress: handlePinPress(updateGame)
   };
-  render() {
-    const { frames = [] } = this.state;
-    console.log('DataWrapper');
-    return <Game frames={frames} handlePinPress={this.handlePinPress} />;
-  }
-}
+};
+
+const handlePinPress = updateGame => {
+  return (frameIndex, pinIndex, pin) => {
+    updateGame(dataManager.actions.updatePin(frameIndex, pinIndex, pin));
+  };
+};
