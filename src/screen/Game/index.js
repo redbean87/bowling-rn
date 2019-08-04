@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import * as dataManager from '../../dataManagement';
+import { game } from '../../dataManagement';
 
 import Game from './Game';
 
-const newGameData = dataManager.newGame();
+const newGameData = game.newGame();
 
 export const GameIndex = () => {
   const [gameData, updateGame] = useState(newGameData);
@@ -22,6 +22,6 @@ const actions = updateGame => {
 
 const handlePinPress = updateGame => {
   return (frameIndex, pinIndex, pin) => {
-    updateGame(dataManager.actions.updatePin(frameIndex, pinIndex, pin));
+    updateGame(game.updatePin(frameIndex, pinIndex, pin));
   };
 };
