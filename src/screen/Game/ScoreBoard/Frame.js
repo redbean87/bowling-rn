@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 import PinCount from './PinCount';
 
 export const Frame = ({ frame }) => {
-  const tenthFrame = frame.position === 10;
+  const { counts = [], tenthFrame } = frame;
+
   const styles = tenthFrame ? tenthFramestyles : nonTenthFramestyles;
-  const counts = [5, 4, 1];
+
   return (
     <View style={styles.container}>
       <View>
-        <Text>{frame.id}</Text>
+        <Text>{frame.position}</Text>
       </View>
       <PinCount counts={counts} tenthFrame={tenthFrame} />
       <View>
@@ -31,16 +32,22 @@ Frame.defaultProps = {
 
 export default Frame;
 
+const commonStyes = {
+  alignItems: 'center',
+  borderWidth: 0.5,
+  borderColor: 'black'
+};
+
 const nonTenthFramestyles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center'
+    ...commonStyes,
+    flex: 1
   }
 });
 
 const tenthFramestyles = StyleSheet.create({
   container: {
-    flex: 1.5,
-    alignItems: 'center'
+    ...commonStyes,
+    flex: 1.5
   }
 });
