@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Lane from './Lane';
 import Footer from './Footer';
+import Lane from './Lane';
+import ScoreBoard from './ScoreBoard';
 
 const MAX_FRAME_POSITION = 10;
 
@@ -12,6 +13,7 @@ export const Game = ({ actions, frames }) => {
   const frame = frames[selectedFrame];
   return (
     <View style={styles.container}>
+      <ScoreBoard frames={frames} />
       <Lane
         frame={frame}
         handlePinPress={handlePinPress(actions, selectedFrame)}
