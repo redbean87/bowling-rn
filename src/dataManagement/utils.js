@@ -10,14 +10,54 @@ export const withMeta = gameData => {
   });
 };
 
-const withFrameMeta = (frame, index, frames) => {
+const withFrameMeta = frame => {
   return produce(frame, draft => {
     const { pins = [] } = draft;
-    draft.counts = [pinCount(pins, 0), pinCount(pins, 1), pinCount(pins, 2)];
-    draft.tenthFrame = draft.position === 10;
+    const tenthFrame = draft.position === 10;
+    const counts = [pinCount(pins, 1), pinCount(pins, 2), pinCount(pins, 3)];
+    const display = pinDisplay(counts, tenthFrame);
+    draft.tenthFrame = tenthFrame;
+    draft.display = display;
   });
 };
 
-const pinCount = (pins, downPosition) => {
-  return pins.filter(pin => pin.downPosition === downPosition).length;
+// return array of counts in one sweep of pins.
+const pinCount = (pins, down) => {
+  return pins.filter(pin => pin.down === down).length;
+};
+
+const pinDisplay = (counts, tenthFrame) => {
+  if (tenthFrame) {
+    return pinDisplayTenthFrame(counts);
+  }
+
+  const [one, two] = counts;
+
+  const strike = one === 10;
+  if (strike) {
+    return ['', 'X'];
+  }
+
+  const spare = one + two === 10;
+  if (spare) {
+    return [one, '/'];
+  }
+
+  return [one || '-', two || '-'];
+};
+
+const pinDisplayTenthFrame = counts => {
+  const [one, two, three] = counts;
+
+  const strike = one === 10;
+  if (strike) {
+    return ['X'].concat(pinDisplayTenthFrame([two, three]));
+  }
+
+  const spare = one + two === 10;
+  if (spare) {
+    return [one, '/'].concat(pinDisplayTenthFrame([three]));
+  }
+
+  return [one || '-', two || '-', '-'];
 };

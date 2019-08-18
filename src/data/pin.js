@@ -2,15 +2,18 @@ import * as utils from './utils';
 
 const data = (frameId, id = 0) => {
   const position = id + 1;
-  const down = utils.randomBool();
-  const maxDownPosition = position === 10 ? 2 : 1;
-  const downPosition = down ? utils.randomNum(maxDownPosition) : false;
+  const down = utils.randomNum(2);
+
+  /**
+   * down
+   * 0: still staning
+   * 1,2,3: knocked down on a particular roll
+   */
   return {
     id,
     frameId,
     position,
-    down,
-    downPosition
+    down
   };
 };
 

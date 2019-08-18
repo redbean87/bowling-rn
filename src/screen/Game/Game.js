@@ -10,23 +10,24 @@ const MAX_FRAME_POSITION = 10;
 
 export const Game = ({ actions, frames }) => {
   const [selectedFrame, updateSelectedFrame] = useState(0);
+  const [currentRoll, updateCurrentRoll] = useState(1);
   const frame = frames[selectedFrame];
   return (
     <View style={styles.container}>
       <ScoreBoard frames={frames} />
       <Lane
         frame={frame}
-        handlePinPress={handlePinPress(actions, selectedFrame)}
+        handlePinPress={handlePinPress(actions, selectedFrame, currentRoll)}
       />
       <Footer
         selectedFrame={selectedFrame}
         onPreviousFramePress={handlePreviousFramePress(
           updateSelectedFrame,
-          selectedFrame
+          selectedFrame - 1
         )}
         onNextFramePress={handleNextFramePress(
           updateSelectedFrame,
-          selectedFrame
+          selectedFrame + 1
         )}
       />
     </View>
@@ -47,25 +48,25 @@ export default Game;
 
 const handlePreviousFramePress = (updateSelectedFrame, selectedFrame) => {
   return () => {
-    if (selectedFrame <= 0) {
+    if (selectedFrame < 0) {
       return;
     }
-    updateSelectedFrame(selectedFrame - 1);
+    updateSelectedFrame(selectedFrame);
   };
 };
 
 const handleNextFramePress = (updateSelectedFrame, selectedFrame) => {
   return () => {
-    if (selectedFrame >= MAX_FRAME_POSITION - 1) {
+    if (selectedFrame >= MAX_FRAME_POSITION) {
       return;
     }
-    updateSelectedFrame(selectedFrame + 1);
+    updateSelectedFrame(selectedFrame);
   };
 };
 
-const handlePinPress = (actions, frameIndex) => {
+const handlePinPress = (actions, frameIndex, currentRoll) => {
   return (pinIndex, pin) => {
-    actions.handlePinPress(frameIndex, pinIndex, pin);
+    actions.handlePinPress(frameIndex, currentRoll, pinIndex, pin);
   };
 };
 

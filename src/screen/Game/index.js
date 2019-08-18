@@ -21,7 +21,7 @@ const actions = updateGame => {
 };
 
 const handlePinPress = updateGame => {
-  return (frameIndex, pinIndex, pin) => {
-    updateGame(game.updatePin(frameIndex, pinIndex, pin));
+  return (frameIndex, currentRoll, pinIndex, pin) => {
+    updateGame(game.updatePin(frameIndex, currentRoll, pinIndex, pin));
   };
 };

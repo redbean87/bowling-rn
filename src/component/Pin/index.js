@@ -9,10 +9,7 @@ export const Pin = props => {
   const { handlePinPress, pin } = props;
   const { down } = pin;
   return (
-    <TouchableOpacity
-      activeOpacity={1}
-      onPress={() => onPinPress(handlePinPress, pin)}
-    >
+    <TouchableOpacity activeOpacity={1} onPress={() => handlePinPress(pin)}>
       <View style={styles.container}>{down ? <PinDown /> : <PinUp />}</View>
     </TouchableOpacity>
   );
@@ -29,11 +26,6 @@ Pin.defaultProps = {
 };
 
 export default Pin;
-
-const onPinPress = (handlePinPress, pin) => {
-  const { down } = pin;
-  return handlePinPress({ ...pin, down: !down });
-};
 
 const styles = StyleSheet.create({
   container: {

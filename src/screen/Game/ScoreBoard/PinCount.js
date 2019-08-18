@@ -2,18 +2,18 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import PropTypes from 'prop-types';
 
-export const PinCount = ({ counts, tenthFrame }) => {
+export const PinCount = ({ display, tenthFrame }) => {
   return (
     <View style={styles.container}>
       <View style={styles.count}>
-        <Text>{counts[0]}</Text>
+        <Text>{display[0]}</Text>
       </View>
       <View style={styles.count}>
-        <Text>{counts[1]}</Text>
+        <Text>{display[1]}</Text>
       </View>
       {tenthFrame && (
         <View style={styles.count}>
-          <Text>{counts[2]}</Text>
+          <Text>{display[2]}</Text>
         </View>
       )}
     </View>
@@ -21,12 +21,12 @@ export const PinCount = ({ counts, tenthFrame }) => {
 };
 
 PinCount.propTypes = {
-  counts: PropTypes.array,
+  display: PropTypes.array,
   tenthFrame: PropTypes.bool
 };
 
 PinCount.defaultProps = {
-  counts: [],
+  display: [],
   tenthFrame: false
 };
 

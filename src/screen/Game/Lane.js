@@ -2,7 +2,7 @@ import React from 'react';
 import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
-import LaneC from '../../component/Lane';
+import LaneComponent from '../../component/Lane';
 
 import RowOne from './Row/One';
 import RowTwo from './Row/Two';
@@ -12,13 +12,15 @@ import RowFour from './Row/Four';
 export const Lane = props => {
   const { handlePinPress } = props;
   const [rowFour, rowThree, rowTwo, rowOne] = pinsByRow(props);
+
+  // TODO: create index for rows to handle pin press
   return (
-    <LaneC>
+    <LaneComponent>
       <RowFour pins={rowFour} handlePinPress={handlePinPress} />
       <RowThree pins={rowThree} handlePinPress={handlePinPress} />
       <RowTwo pins={rowTwo} handlePinPress={handlePinPress} />
       <RowOne pin={rowOne} handlePinPress={handlePinPress} />
-    </LaneC>
+    </LaneComponent>
   );
 };
 

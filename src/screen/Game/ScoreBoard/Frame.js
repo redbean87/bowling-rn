@@ -5,18 +5,18 @@ import PropTypes from 'prop-types';
 import PinCount from './PinCount';
 
 export const Frame = ({ frame }) => {
-  const { counts = [], tenthFrame } = frame;
+  const { display = [], id, position, tenthFrame } = frame;
 
   const styles = tenthFrame ? tenthFramestyles : nonTenthFramestyles;
 
   return (
     <View style={styles.container}>
       <View>
-        <Text>{frame.position}</Text>
+        <Text>{position}</Text>
       </View>
-      <PinCount counts={counts} tenthFrame={tenthFrame} />
+      <PinCount display={display} tenthFrame={tenthFrame} />
       <View>
-        <Text>{frame.id}</Text>
+        <Text>{id}</Text>
       </View>
     </View>
   );
