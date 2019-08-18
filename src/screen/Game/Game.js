@@ -20,7 +20,7 @@ export const Game = ({ actions, frames }) => {
       />
       <Lane
         frame={frame}
-        handlePinPress={handlePinPress(actions, selectedFrame, currentRoll)}
+        handlePinPress={handlePinPress(actions, frame, currentRoll)}
       />
       <Footer
         selectedFrame={selectedFrame}
@@ -80,9 +80,9 @@ const handleNextFramePress = (updateSelectedFrame, selectedFrame) => {
   };
 };
 
-const handlePinPress = (actions, frameIndex, currentRoll) => {
+const handlePinPress = (actions, frame, currentRoll) => {
   return (pinIndex, pin) => {
-    actions.handlePinPress(frameIndex, currentRoll, pinIndex, pin);
+    actions.handlePinPress(frame, currentRoll, pinIndex, pin);
   };
 };
 

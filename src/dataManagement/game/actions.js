@@ -8,7 +8,7 @@ export const newGame = (id = 0) => {
 };
 
 export const updatePin = (state, payload) => {
-  const { frameIndex, currentRoll, pin } = payload;
+  const { frame, currentRoll, pin } = payload;
 
   return produce(state, draft => {
     if (pin.down > 0 && pin.down !== currentRoll) {
@@ -16,11 +16,13 @@ export const updatePin = (state, payload) => {
     }
 
     let down = 0;
+    const frameIndex = frame.position - 1;
+    const pinIndex = pin.position - 1;
+
     if (pin.down !== currentRoll) {
       down = currentRoll;
     }
 
-    const pinIndex = pin.position - 1;
     draft.frames[frameIndex].pins[pinIndex] = dataUtils.mergeObjects(pin, {
       down
     });
