@@ -1,6 +1,6 @@
 import { withMeta } from '../utils';
 
-import { newGame, updatePin } from './actions';
+import { newGame, handlePinPress, handleStrikePress } from './actions';
 
 let gameData = {};
 
@@ -9,8 +9,15 @@ export default {
     gameData = newGame();
     return withMeta(gameData);
   },
-  updatePin: (frame, currentRoll, pin) => {
-    gameData = updatePin(gameData, {
+  handleStrikePress: (frame, currentRoll) => {
+    gameData = handleStrikePress(gameData, {
+      frame,
+      currentRoll
+    });
+    return withMeta(gameData);
+  },
+  handlePinPress: (frame, currentRoll, pin) => {
+    gameData = handlePinPress(gameData, {
       frame,
       currentRoll,
       pin

@@ -16,12 +16,19 @@ export default GameIndex;
 
 const actions = updateGame => {
   return {
-    handlePinPress: handlePinPress(updateGame)
+    handlePinPress: handlePinPress(updateGame),
+    handleStrikePress: handleStrikePress(updateGame)
+  };
+};
+
+const handleStrikePress = updateGame => {
+  return (frame, currentRoll) => {
+    updateGame(game.handleStrikePress(frame, currentRoll));
   };
 };
 
 const handlePinPress = updateGame => {
   return (frame, currentRoll, pin) => {
-    updateGame(game.updatePin(frame, currentRoll, pin));
+    updateGame(game.handlePinPress(frame, currentRoll, pin));
   };
 };

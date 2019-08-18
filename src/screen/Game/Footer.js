@@ -5,27 +5,22 @@ import PropTypes from 'prop-types';
 import Button from '../../component/Button';
 
 const Footer = ({
-  onNextFramePress,
+  currentRoll,
   onNextRollPress,
-  onPreviousFramePress,
   onStrikePress,
-  onSparePress,
-  selectedFrame
+  onSparePress
 }) => {
   return (
     <View style={styles.container}>
-      <View style={styles.prev}>
-        <Button onPress={onStrikePress} title={'Strike'} />
-      </View>
-      <View style={styles.prev}>
-        <Button onPress={onPreviousFramePress} title={'Prev Frame'} />
-      </View>
-      <View style={styles.game}>
-        <Button onPress={() => {}} title={`Frame ${selectedFrame + 1}`} />
-      </View>
-      <View style={styles.next}>
-        <Button onPress={onNextFramePress} title={'Next Frame'} />
-      </View>
+      {currentRoll === 1 ? (
+        <View style={styles.strike}>
+          <Button onPress={onStrikePress} title={'Strike'} />
+        </View>
+      ) : (
+        <View style={styles.strike}>
+          <Button onPress={onSparePress} title={'Spare'} />
+        </View>
+      )}
       <View style={styles.next}>
         <Button onPress={onNextRollPress} title={'Next Roll'} />
       </View>
@@ -34,18 +29,16 @@ const Footer = ({
 };
 
 Footer.propTypes = {
-  onNextFramePress: PropTypes.func.isRequired,
+  currentRoll: PropTypes.number,
   onNextRollPress: PropTypes.func.isRequired,
-  onPreviousFramePress: PropTypes.func.isRequired,
   onSparePress: PropTypes.func.isRequired,
   onStrikePress: PropTypes.func.isRequired,
   selectedFrame: PropTypes.number.isRequired
 };
 
 Footer.defaultProps = {
-  onNextFramePress: () => {},
+  currentRoll: 0,
   onNextRollPress: () => {},
-  onPreviousFramePress: () => {},
   onSparePress: () => {},
   onStrikePress: () => {},
   selectedFrame: 1
@@ -58,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
-  prev: {
+  strike: {
     flex: 1
   },
   game: {

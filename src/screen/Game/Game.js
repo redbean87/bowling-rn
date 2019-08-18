@@ -6,8 +6,6 @@ import Footer from './Footer';
 import Lane from './Lane';
 import ScoreBoard from './ScoreBoard';
 
-const MAX_FRAME_POSITION = 10;
-
 export const Game = ({ actions, frames }) => {
   const [selectedFrame, updateSelectedFrame] = useState(0);
   const [currentRoll, updateCurrentRoll] = useState(1);
@@ -23,16 +21,14 @@ export const Game = ({ actions, frames }) => {
         handlePinPress={handlePinPress(actions, frame, currentRoll)}
       />
       <Footer
+        currentRoll={currentRoll}
         selectedFrame={selectedFrame}
-        onPreviousFramePress={handlePreviousFramePress(
-          updateSelectedFrame,
-          selectedFrame - 1
+        onStrikePress={handleStrikePress(
+          actions,
+          updateCurrentRoll,
+          frame,
+          currentRoll
         )}
-        onNextFramePress={handleNextFramePress(
-          updateSelectedFrame,
-          selectedFrame + 1
-        )}
-        onStrikePress={handleStrikePress(updateCurrentRoll)}
         onSparePress={handleSparePress(updateCurrentRoll)}
         onNextRollPress={handleNextRollPress(updateCurrentRoll)}
       />
@@ -62,45 +58,28 @@ const handleFramePress = updateSelectedFrame => {
   };
 };
 
-const handlePreviousFramePress = (updateSelectedFrame, selectedFrame) => {
-  return () => {
-    if (selectedFrame < 0) {
-      return;
-    }
-    updateSelectedFrame(selectedFrame);
-  };
-};
-
-const handleNextFramePress = (updateSelectedFrame, selectedFrame) => {
-  return () => {
-    if (selectedFrame >= MAX_FRAME_POSITION) {
-      return;
-    }
-    updateSelectedFrame(selectedFrame);
-  };
-};
-
 const handlePinPress = (actions, frame, currentRoll) => {
-  return (pinIndex, pin) => {
-    actions.handlePinPress(frame, currentRoll, pinIndex, pin);
+  return pin => {
+    actions.handlePinPress(frame, currentRoll, pin);
   };
 };
 
-const handleStrikePress = updateCurrentRoll => {
+const handleStrikePress = (actions, updateCurrentRoll, frame, currentRoll) => {
   return () => {
-    updateCurrentRoll();
+    actions.handleStrikePress(frame, currentRoll);
+    // updateCurrentRoll(1);
   };
 };
 
 const handleSparePress = updateCurrentRoll => {
   return () => {
-    updateCurrentRoll();
+    updateCurrentRoll(1);
   };
 };
 
 const handleNextRollPress = updateCurrentRoll => {
   return () => {
-    updateCurrentRoll();
+    updateCurrentRoll(2);
   };
 };
 
