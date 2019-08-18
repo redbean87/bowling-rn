@@ -15,28 +15,22 @@ export default class Three extends React.PureComponent {
     handlePinPress: () => {}
   };
 
-  handlePinPress = pinIndex => {
-    return pin => {
-      return this.props.handlePinPress(pinIndex, pin);
-    };
-  };
-
   render() {
-    const { pins } = this.props;
+    const { handlePinPress, pins } = this.props;
     const [pinFour, pinFive, pinSix] = pins;
     return (
       <View style={styles.container}>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFour} onPinPress={this.handlePinPress(3)} />
+          <Pin pin={pinFour} onPinPress={handlePinPress} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFive} onPinPress={this.handlePinPress(4)} />
+          <Pin pin={pinFive} onPinPress={handlePinPress} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinSix} onPinPress={this.handlePinPress(5)} />
+          <Pin pin={pinSix} onPinPress={handlePinPress} />
         </View>
         <View style={styles.column} />
       </View>

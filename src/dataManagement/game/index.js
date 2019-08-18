@@ -9,11 +9,10 @@ export default {
     gameData = newGame();
     return withMeta(gameData);
   },
-  updatePin: (frameIndex, currentRoll, pinIndex, pin) => {
+  updatePin: (frameIndex, currentRoll, pin) => {
     gameData = updatePin(gameData, {
       frameIndex,
       currentRoll,
-      pinIndex,
       pin
     });
     return withMeta(gameData);
