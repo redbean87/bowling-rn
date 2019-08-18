@@ -1,27 +1,31 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 
 import PinDown from './PinDown';
 import PinUp from './PinUp';
 
 export const Pin = props => {
-  const { handlePinPress, pin } = props;
+  const { onPinPress, pin } = props;
   const { down } = pin;
   return (
-    <TouchableOpacity activeOpacity={1} onPress={() => handlePinPress(pin)}>
-      <View style={styles.container}>{down ? <PinDown /> : <PinUp />}</View>
+    <TouchableOpacity
+      style={styles.container}
+      activeOpacity={1}
+      onPress={() => onPinPress(pin)}
+    >
+      {down ? <PinDown /> : <PinUp />}
     </TouchableOpacity>
   );
 };
 
 Pin.propTypes = {
   pin: PropTypes.object,
-  handlePinPress: PropTypes.func
+  onPinPress: PropTypes.func
 };
 
 Pin.defaultProps = {
-  handlePinPress: () => {},
+  onPinPress: () => {},
   pin: {}
 };
 

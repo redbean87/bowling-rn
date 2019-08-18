@@ -4,9 +4,19 @@ import PropTypes from 'prop-types';
 
 import Button from '../../component/Button';
 
-const Footer = ({ onPreviousFramePress, onNextFramePress, selectedFrame }) => {
+const Footer = ({
+  onNextFramePress,
+  onNextRollPress,
+  onPreviousFramePress,
+  onStrikePress,
+  onSparePress,
+  selectedFrame
+}) => {
   return (
     <View style={styles.container}>
+      <View style={styles.prev}>
+        <Button onPress={onStrikePress} title={'Strike'} />
+      </View>
       <View style={styles.prev}>
         <Button onPress={onPreviousFramePress} title={'Prev Frame'} />
       </View>
@@ -16,14 +26,29 @@ const Footer = ({ onPreviousFramePress, onNextFramePress, selectedFrame }) => {
       <View style={styles.next}>
         <Button onPress={onNextFramePress} title={'Next Frame'} />
       </View>
+      <View style={styles.next}>
+        <Button onPress={onNextRollPress} title={'Next Roll'} />
+      </View>
     </View>
   );
 };
 
 Footer.propTypes = {
-  selectedFrame: PropTypes.number.isRequired,
+  onNextFramePress: PropTypes.func.isRequired,
+  onNextRollPress: PropTypes.func.isRequired,
   onPreviousFramePress: PropTypes.func.isRequired,
-  onNextFramePress: PropTypes.func.isRequired
+  onSparePress: PropTypes.func.isRequired,
+  onStrikePress: PropTypes.func.isRequired,
+  selectedFrame: PropTypes.number.isRequired
+};
+
+Footer.defaultProps = {
+  onNextFramePress: () => {},
+  onNextRollPress: () => {},
+  onPreviousFramePress: () => {},
+  onSparePress: () => {},
+  onStrikePress: () => {},
+  selectedFrame: 1
 };
 
 export default Footer;

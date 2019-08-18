@@ -14,7 +14,10 @@ export const Game = ({ actions, frames }) => {
   const frame = frames[selectedFrame];
   return (
     <View style={styles.container}>
-      <ScoreBoard frames={frames} />
+      <ScoreBoard
+        frames={frames}
+        onFramePress={handleFramePress(updateSelectedFrame)}
+      />
       <Lane
         frame={frame}
         handlePinPress={handlePinPress(actions, selectedFrame, currentRoll)}
@@ -29,6 +32,9 @@ export const Game = ({ actions, frames }) => {
           updateSelectedFrame,
           selectedFrame + 1
         )}
+        onStrikePress={handleStrikePress(updateCurrentRoll)}
+        onSparePress={handleSparePress(updateCurrentRoll)}
+        onNextRollPress={handleNextRollPress(updateCurrentRoll)}
       />
     </View>
   );
@@ -45,6 +51,16 @@ Game.defaultProps = {
 };
 
 export default Game;
+
+const handleFramePress = updateSelectedFrame => {
+  return selectedFrame => {
+    const nextFrame = selectedFrame - 1;
+    if (nextFrame < 0) {
+      return;
+    }
+    updateSelectedFrame(nextFrame);
+  };
+};
 
 const handlePreviousFramePress = (updateSelectedFrame, selectedFrame) => {
   return () => {
@@ -67,6 +83,24 @@ const handleNextFramePress = (updateSelectedFrame, selectedFrame) => {
 const handlePinPress = (actions, frameIndex, currentRoll) => {
   return (pinIndex, pin) => {
     actions.handlePinPress(frameIndex, currentRoll, pinIndex, pin);
+  };
+};
+
+const handleStrikePress = updateCurrentRoll => {
+  return () => {
+    updateCurrentRoll();
+  };
+};
+
+const handleSparePress = updateCurrentRoll => {
+  return () => {
+    updateCurrentRoll();
+  };
+};
+
+const handleNextRollPress = updateCurrentRoll => {
+  return () => {
+    updateCurrentRoll();
   };
 };
 

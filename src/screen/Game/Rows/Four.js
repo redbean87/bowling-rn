@@ -27,19 +27,19 @@ export default class Four extends React.PureComponent {
     return (
       <View style={styles.container}>
         <View style={styles.column}>
-          <Pin pin={pinSeven} handlePinPress={this.handlePinPress(6)} />
+          <Pin pin={pinSeven} onPinPress={this.handlePinPress(6)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinEight} handlePinPress={this.handlePinPress(7)} />
+          <Pin pin={pinEight} onPinPress={this.handlePinPress(7)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinNine} handlePinPress={this.handlePinPress(8)} />
+          <Pin pin={pinNine} onPinPress={this.handlePinPress(8)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinTen} handlePinPress={this.handlePinPress(9)} />
+          <Pin pin={pinTen} onPinPress={this.handlePinPress(9)} />
         </View>
       </View>
     );

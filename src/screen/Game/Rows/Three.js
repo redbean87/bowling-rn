@@ -28,15 +28,15 @@ export default class Three extends React.PureComponent {
       <View style={styles.container}>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFour} handlePinPress={this.handlePinPress(3)} />
+          <Pin pin={pinFour} onPinPress={this.handlePinPress(3)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinFive} handlePinPress={this.handlePinPress(4)} />
+          <Pin pin={pinFive} onPinPress={this.handlePinPress(4)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pinSix} handlePinPress={this.handlePinPress(5)} />
+          <Pin pin={pinSix} onPinPress={this.handlePinPress(5)} />
         </View>
         <View style={styles.column} />
       </View>

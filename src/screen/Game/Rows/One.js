@@ -29,7 +29,7 @@ export default class One extends React.PureComponent {
         <View style={styles.column} />
         <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pin} handlePinPress={this.handlePinPress(0)} />
+          <Pin pin={pin} onPinPress={this.handlePinPress(0)} />
         </View>
         <View style={styles.column} />
         <View style={styles.column} />
