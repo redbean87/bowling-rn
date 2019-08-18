@@ -14,16 +14,25 @@ const withFrameMeta = frame => {
   return produce(frame, draft => {
     const { pins = [] } = draft;
     const tenthFrame = draft.position === 10;
-    const counts = [pinCount(pins, 1), pinCount(pins, 2), pinCount(pins, 3)];
+    const counts = pinCount(pins);
     const display = pinDisplay(counts, tenthFrame);
     draft.tenthFrame = tenthFrame;
     draft.display = display;
   });
 };
 
-// return array of counts in one sweep of pins.
-const pinCount = (pins, down) => {
-  return pins.filter(pin => pin.down === down).length;
+const pinCount = (pins = []) => {
+  const counts = [];
+  pins.forEach((pin = {}) => {
+    const { down } = pin;
+    if (!down) {
+      return;
+    }
+    const countPosition = down - 1;
+    const currentCount = counts[countPosition] || 0;
+    counts[countPosition] = currentCount + 1;
+  });
+  return counts;
 };
 
 const pinDisplay = (counts, tenthFrame) => {

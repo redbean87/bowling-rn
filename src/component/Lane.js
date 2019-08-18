@@ -7,7 +7,7 @@ const Lane = props => {
 };
 
 Lane.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 };
 
 export default Lane;
