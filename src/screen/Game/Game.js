@@ -13,6 +13,7 @@ export const Game = ({ actions, frames }) => {
   return (
     <View style={styles.container}>
       <ScoreBoard
+        currentframe={frame}
         frames={frames}
         onFramePress={handleFramePress(updateSelectedFrame)}
       />
@@ -26,6 +27,7 @@ export const Game = ({ actions, frames }) => {
         onStrikePress={handleStrikePress(
           actions,
           updateCurrentRoll,
+          updateSelectedFrame,
           frame,
           currentRoll
         )}
@@ -64,22 +66,29 @@ const handlePinPress = (actions, frame, currentRoll) => {
   };
 };
 
-const handleStrikePress = (actions, updateCurrentRoll, frame, currentRoll) => {
+const handleStrikePress = (
+  actions,
+  updateCurrentRoll,
+  updateSelectedFrame,
+  frame,
+  currentRoll
+) => {
   return () => {
     actions.handleStrikePress(frame, currentRoll);
-    // updateCurrentRoll(1);
+    updateCurrentRoll(1);
+    updateSelectedFrame(frame.position);
   };
 };
 
-const handleSparePress = updateCurrentRoll => {
+const handleSparePress = (actions, updateCurrentRoll) => {
   return () => {
     updateCurrentRoll(1);
   };
 };
 
-const handleNextRollPress = updateCurrentRoll => {
+const handleNextRollPress = (updateCurrentRoll, selectedFrame, currentRoll) => {
   return () => {
-    updateCurrentRoll(2);
+    updateCurrentRoll(currentRoll + 1);
   };
 };
 

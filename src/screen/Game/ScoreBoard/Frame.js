@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 
 import PinCount from './PinCount';
 
-export const Frame = ({ frame, onFramePress }) => {
+export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
   const { display = [], id, position, tenthFrame } = frame;
 
-  const styles = tenthFrame ? tenthFramestyles : nonTenthFramestyles;
+  const styles = getStyles(tenthFrame, isCurrentFrame);
 
   return (
     <TouchableOpacity
@@ -28,15 +28,31 @@ export const Frame = ({ frame, onFramePress }) => {
 
 Frame.propTypes = {
   frame: PropTypes.object,
+  isCurrentFrame: PropTypes.bool,
   onFramePress: PropTypes.func
 };
 
 Frame.defaultProps = {
   frame: {},
+  isCurrentFrame: false,
   onFramePress: () => {}
 };
 
 export default Frame;
+
+const getStyles = (tenthFrame, isCurrentFrame) => {
+  if (tenthFrame) {
+    if (isCurrentFrame) {
+      return tenthCurrentFrameStyles;
+    }
+    return tenthFramestyles;
+  }
+
+  if (isCurrentFrame) {
+    return nonTenthCurrentFrameStyles;
+  }
+  return nonTenthFramestyles;
+};
 
 const commonStyes = {
   alignItems: 'center',
@@ -58,4 +74,24 @@ const tenthFramestyles = StyleSheet.create({
     flex: 1.5
   },
   frame: {}
+});
+
+const currentFrameCommonStyles = {
+  backgroundColor: 'grey'
+};
+
+const nonTenthCurrentFrameStyles = StyleSheet.create({
+  container: {
+    ...commonStyes,
+    ...currentFrameCommonStyles,
+    flex: 1
+  }
+});
+
+const tenthCurrentFrameStyles = StyleSheet.create({
+  container: {
+    ...commonStyes,
+    ...currentFrameCommonStyles,
+    flex: 1.5
+  }
 });

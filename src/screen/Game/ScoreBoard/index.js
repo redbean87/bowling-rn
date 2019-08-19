@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Frame from './Frame';
 
-export const ScoreBoardIndex = ({ frames, onFramePress }) => {
+export const ScoreBoardIndex = ({ currentframe, frames, onFramePress }) => {
   return (
     <View style={styles.container}>
       {frames.map(frame => {
@@ -12,6 +12,7 @@ export const ScoreBoardIndex = ({ frames, onFramePress }) => {
           <Frame
             key={frame.id}
             frame={frame}
+            isCurrentFrame={frame === currentframe}
             onFramePress={handleOnFramePress(onFramePress)}
           />
         );
@@ -21,11 +22,13 @@ export const ScoreBoardIndex = ({ frames, onFramePress }) => {
 };
 
 ScoreBoardIndex.propTypes = {
+  currentframe: PropTypes.object,
   frames: PropTypes.arrayOf(PropTypes.object),
   onFramePress: PropTypes.func
 };
 
 ScoreBoardIndex.defaultProps = {
+  currentframe: {},
   frames: [],
   onFramePress: () => {}
 };
