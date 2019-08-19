@@ -17,13 +17,20 @@ export default GameIndex;
 const actions = updateGame => {
   return {
     handlePinPress: handlePinPress(updateGame),
-    handleStrikePress: handleStrikePress(updateGame)
+    handleStrikePress: handleStrikePress(updateGame),
+    handleSparePress: handleSparePress(updateGame)
   };
 };
 
 const handleStrikePress = updateGame => {
   return (frame, currentRoll) => {
     updateGame(game.handleStrikePress(frame, currentRoll));
+  };
+};
+
+const handleSparePress = updateGame => {
+  return (frame, currentRoll) => {
+    updateGame(game.handleSparePress(frame, currentRoll));
   };
 };
 

@@ -21,6 +21,24 @@ export const handleStrikePress = (state, payload) => {
   });
 };
 
+export const handleSparePress = (state, payload) => {
+  return produce(state, draft => {
+    const { currentRoll, frame = {} } = payload;
+    const { pins = [] } = frame;
+    const frameIndex = frame.position - 1;
+
+    draft.frames[frameIndex].pins = pins.map(pin => {
+      if (pin.down !== 0) {
+        return pin;
+      }
+
+      return dataUtils.mergeObjects(pin, {
+        down: currentRoll
+      });
+    });
+  });
+};
+
 export const handlePinPress = (state, payload) => {
   const { currentRoll, frame, pin } = payload;
   if (pin.down > 0 && pin.down !== currentRoll) {

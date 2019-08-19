@@ -1,6 +1,11 @@
 import { withMeta } from '../utils';
 
-import { newGame, handlePinPress, handleStrikePress } from './actions';
+import {
+  newGame,
+  handlePinPress,
+  handleSparePress,
+  handleStrikePress
+} from './actions';
 
 let gameData = {};
 
@@ -11,6 +16,13 @@ export default {
   },
   handleStrikePress: (frame, currentRoll) => {
     gameData = handleStrikePress(gameData, {
+      frame,
+      currentRoll
+    });
+    return withMeta(gameData);
+  },
+  handleSparePress: (frame, currentRoll) => {
+    gameData = handleSparePress(gameData, {
       frame,
       currentRoll
     });
