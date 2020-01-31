@@ -4,19 +4,22 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
+    "rm-node_modules": "rm -rf node_modules",
+    "clean": "yarn rm-node_modules && yarn",
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "^34.0.3",
+    "expo": "^36.0.0",
     "immer": "^3.2.0",
     "prop-types": "^15.7.2",
-    "react": "16.8.3",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",
+    "react": "16.9.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.1.tar.gz",
     "reselect": "^4.0.0"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-preset-expo": "^5.0.0",
+    "@babel/core": "^7.8.3",
+    "babel-eslint": "^10.0.3",
+    "babel-preset-expo": "^8.0.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0"
   },
