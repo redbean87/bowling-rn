@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 
 import Footer from './Footer';
 import Lane from './Lane';
 import ScoreBoard from './ScoreBoard';
 
-const MAX_FRAME_POSITION = 10;
+const MAX_FRAME_POSITION = 9;
 
 export const Game = ({ actions, frames }) => {
   const [selectedFrame, updateSelectedFrame] = useState(0);
-  const [currentRoll, updateCurrentRoll] = useState(1);
+  const [currentRoll, updateCurrentRoll] = useState(0);
   const frame = frames[selectedFrame];
   return (
     <View style={styles.container}>
