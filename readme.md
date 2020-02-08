@@ -18,7 +18,7 @@
 
 ## Ball
 
-- weight: 10 - 16 lbs
+- weight: 6 - 16 lbs
 - coverstock
   - plastic
     - low hook
