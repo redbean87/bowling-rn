@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import LaneComponent from '../../component/Lane';
+import LaneComponent from '../../components/Lane';
 
 import Rows from './Rows';
 
