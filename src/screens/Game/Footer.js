@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Button from '../../component/Button';
+import Button from '../../components/Button';
 
 const Footer = ({
   currentRoll,
