@@ -39,14 +39,10 @@ export default class Two extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    alignItems: 'center',
-    justifyContent: 'center',
     flexDirection: 'row'
   },
   column: {
     flex: 1,
-    alignItems: 'center',
     justifyContent: 'center'
   }
 });

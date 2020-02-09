@@ -9,12 +9,11 @@ export default PinDown;
 
 const styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
+    backgroundColor: 'black',
     borderColor: 'black',
-    borderRadius: 100,
-    padding: 18,
-    backgroundColor: 'black'
+    borderRadius: '50%',
+    borderWidth: 1,
+    paddingTop: '100%',
+    width: '100%'
   }
 });
