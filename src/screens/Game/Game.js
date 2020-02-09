@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Lane from './Lane';
 import ScoreBoard from './ScoreBoard';
 
+// Frames 0 - 9
 const MAX_FRAME_POSITION = 9;
 
 export const Game = ({ actions, frames }) => {
@@ -65,7 +66,7 @@ export default Game;
 
 const handleFramePress = updateSelectedFrame => {
   return selectedFrame => {
-    const nextFrame = selectedFrame - 1;
+    const nextFrame = selectedFrame;
     updateSelectedFrame(nextFrame);
   };
 };
@@ -136,8 +137,6 @@ const handleNextRollPress = (
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    flex: 1
   }
 });

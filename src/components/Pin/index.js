@@ -32,7 +32,5 @@ Pin.defaultProps = {
 export default Pin;
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 15
-  }
+  container: {}
 });
