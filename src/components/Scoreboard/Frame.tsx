@@ -5,7 +5,9 @@ import PropTypes from 'prop-types';
 import PinCount from './PinCount';
 
 export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
-  const { display = [], id, position, tenthFrame } = frame;
+  const { id, position, pins } = frame;
+  const tenthFrame = position == 10;
+  const display = [pinsDown(pins, 1), pinsDown(pins, 2), pinsDown(pins, 3)];
 
   const styles = getStyles(tenthFrame, isCurrentFrame);
 
@@ -39,6 +41,10 @@ Frame.defaultProps = {
 };
 
 export default Frame;
+
+const pinsDown = (pins = [], position = 0) => {
+  return pins.filter(pin => pin.down === position).length;
+};
 
 const getStyles = (tenthFrame, isCurrentFrame) => {
   if (tenthFrame) {

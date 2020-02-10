@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Footer from './Footer';
 import Lane from './Lane';
-import ScoreBoard from './ScoreBoard';
+import ScoreBoard from '../../containers/Scoreboard';
 
 // Frames 0 - 9
 const MAX_FRAME_POSITION = 9;
@@ -15,11 +15,7 @@ export const Game = ({ actions, frames }) => {
   const frame = frames[selectedFrame];
   return (
     <View style={styles.container}>
-      <ScoreBoard
-        currentframe={frame}
-        frames={frames}
-        onFramePress={handleFramePress(updateSelectedFrame)}
-      />
+      <ScoreBoard />
       <Lane
         frame={frame}
         handlePinPress={handlePinPress(actions, frame, currentRoll)}
