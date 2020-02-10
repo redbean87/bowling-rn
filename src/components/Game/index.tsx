@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 
-import ScoreBoardIndex from '../containers/Scoreboard';
+import ScoreBoard from '../../containers/Scoreboard';
+import Footer from './Footer';
 
 export const GameIndex = () => {
   return (
     <View>
-      <ScoreBoardIndex />
+      <ScoreBoard />
+      <Footer />
     </View>
   );
 };

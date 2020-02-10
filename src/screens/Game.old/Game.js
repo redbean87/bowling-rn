@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Footer from './Footer';
+import Footer from '../../components/Game/Footer';
 import Lane from './Lane';
 import ScoreBoard from '../../containers/Scoreboard';
 

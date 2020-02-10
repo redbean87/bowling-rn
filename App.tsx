@@ -1,6 +1,7 @@
 import React from 'react';
-import Game from './src/screens/Game';
+
+import AppContainer from './src/containers/App';
 
 export default function App() {
-  return <Game />;
+  return <AppContainer />;
 }

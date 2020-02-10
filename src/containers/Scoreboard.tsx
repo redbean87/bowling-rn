@@ -2,14 +2,14 @@ import React from 'react';
 
 import { GameProvider, useGame } from '../providers/game';
 
-import Scoreboard from '../components/Scoreboard';
+import ScoreboardComponent from '../components/Game/Scoreboard';
 
 const ScoreboardContainer = () => {
   const { actions, state } = useGame();
-  return <Scoreboard {...actions} {...state} />;
+  return <ScoreboardComponent {...actions} {...state} />;
 };
 
-export default function ScoreBoardIndex() {
+export default function ScoreBoard() {
   return (
     <GameProvider>
       <ScoreboardContainer />
