@@ -2,32 +2,39 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Pin from '../../../components/Pin';
+import Pin from '../../Pin';
 
-export default class One extends React.PureComponent {
+export default class Four extends React.PureComponent {
   static propTypes = {
-    pin: PropTypes.object,
+    pins: PropTypes.arrayOf(PropTypes.object),
     handlePinPress: PropTypes.func
   };
 
   static defaultProps = {
-    pin: {},
+    pins: [],
     handlePinPress: () => {}
   };
 
   render() {
-    const { handlePinPress, pin } = this.props;
+    const { handlePinPress, pins } = this.props;
+    const [pinSeven, pinEight, pinNine, pinTen] = pins;
     return (
       <View style={styles.container}>
-        <View style={styles.column} />
-        <View style={styles.column} />
-        <View style={styles.column} />
         <View style={styles.column}>
-          <Pin pin={pin} onPinPress={handlePinPress} />
+          <Pin pin={pinSeven} onPinPress={handlePinPress} />
         </View>
         <View style={styles.column} />
+        <View style={styles.column}>
+          <Pin pin={pinEight} onPinPress={handlePinPress} />
+        </View>
         <View style={styles.column} />
+        <View style={styles.column}>
+          <Pin pin={pinNine} onPinPress={handlePinPress} />
+        </View>
         <View style={styles.column} />
+        <View style={styles.column}>
+          <Pin pin={pinTen} onPinPress={handlePinPress} />
+        </View>
       </View>
     );
   }

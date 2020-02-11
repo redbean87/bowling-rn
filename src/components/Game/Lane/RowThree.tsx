@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Pin from '../../../components/Pin';
+import Pin from '../../Pin';
 
 export default class Three extends React.PureComponent {
   static propTypes = {
