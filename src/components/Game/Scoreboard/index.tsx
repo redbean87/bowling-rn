@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Frame from './Frame';
 
-export const ScoreBoardIndex = ({ frames, selectedFrame, onFramePress }) => {
+export const ScoreBoard = ({ frames, selectedFrame, onFramePress }) => {
   return (
     <View style={styles.container}>
       {frames.map(frame => {
@@ -21,19 +21,19 @@ export const ScoreBoardIndex = ({ frames, selectedFrame, onFramePress }) => {
   );
 };
 
-ScoreBoardIndex.propTypes = {
+ScoreBoard.propTypes = {
   currentframe: PropTypes.object,
   frames: PropTypes.arrayOf(PropTypes.object),
   onFramePress: PropTypes.func
 };
 
-ScoreBoardIndex.defaultProps = {
+ScoreBoard.defaultProps = {
   selectedFrame: 0,
   frames: [],
   onFramePress: () => {}
 };
 
-export default ScoreBoardIndex;
+export default ScoreBoard;
 
 const styles = StyleSheet.create({
   container: {

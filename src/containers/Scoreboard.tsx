@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GameProvider, useGame } from '../providers/game';
+import { useGame } from '../providers/game';
 
 import ScoreboardComponent from '../components/Game/Scoreboard';
 
@@ -10,9 +10,5 @@ const ScoreboardContainer = () => {
 };
 
 export default function ScoreBoard() {
-  return (
-    <GameProvider>
-      <ScoreboardContainer />
-    </GameProvider>
-  );
+  return <ScoreboardContainer />;
 }
