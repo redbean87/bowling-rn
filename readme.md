@@ -1,8 +1,38 @@
+# Development Prerequisites
+
+## Development Devices
+
+### Web
+
+- any web browser
+
+### Android
+
+- android emulator / device
+
+### iOS
+
+- iOS emulator /device
+
+## Develpment Tools
+
+- IDE for javascript coding E.g. [Visual Studio Code](https://code.visualstudio.com/)
+- [Node.js LTS](https://nodejs.org/en/) for building app
+- [Yarn](https://classic.yarnpkg.com/en/) for installing node modules / running package.json script
+- [Expo](https://docs.expo.io/versions/latest/get-started/installation/) deploying to device
+- [Xcode](https://developer.apple.com/xcode/) for iOS emulator
+- [Android Studio](https://developer.android.com/studio) for android emulator
+
 # Run Application
 
+## commands
+
+- yarn
+  - installs node modules
 - yarn start
-- browser will will open
-- select device to send to
+  - start expo web server
+  - opens browser
+    - left hand side gives you options for deployment
 
 # Domain Information
 
