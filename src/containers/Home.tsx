@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Button from '../../component/Button';
+import Button from '../components/Common/Button';
 
-import { randomColorGenerator } from './utils';
+import { randomColorGenerator } from '../utils';
 
 export default class Home extends React.PureComponent {
   constructor(props) {

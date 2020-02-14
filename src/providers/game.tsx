@@ -1,6 +1,6 @@
 import React from 'react';
 
-import getGameData from '../data/game';
+import { getGameData } from '../data';
 
 import gameReducer from '../reducers/game';
 
