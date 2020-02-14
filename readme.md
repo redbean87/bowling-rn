@@ -23,6 +23,16 @@
 - [Xcode](https://developer.apple.com/xcode/) for iOS emulator
 - [Android Studio](https://developer.android.com/studio) for android emulator
 
+# Application Stack
+
+## Front-End
+
+- [Expo](https://docs.expo.io/versions/latest/)
+- [React Native](https://facebook.github.io/react-native/docs/getting-started)
+- [immer](https://immerjs.github.io/immer/docs/introduction)
+
+## Back-End
+
 # Run Application
 
 ## commands
