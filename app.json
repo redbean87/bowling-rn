@@ -3,7 +3,6 @@
     "name": "Bowling",
     "slug": "Bowling",
     "privacy": "public",
-    "sdkVersion": "36.0.0",
     "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
@@ -24,7 +23,7 @@
     "android": {
       "package": "com.cortezashley.bowling"
     },
-    "description": "React Native Bowling Score Keeper",
+    "description": "Bowling Score Keeper",
     "githubUrl": "https://github.com/redbean87/bowling-rn.git"
   }
 }
