@@ -90,3 +90,17 @@
 ### Frame
 
 - 10 pins
+
+Store:
+
+Teams: group of users
+
+Users: person playing a game
+
+Games: 10 frames
+
+Frames - no data always the same.
+
+Rolls: array of rolls per frame
+
+Pins: for later use not quite sure what I am going to do with this
