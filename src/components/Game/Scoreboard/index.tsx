@@ -4,10 +4,13 @@ import PropTypes from 'prop-types';
 
 import Frame from './Frame';
 
-export const ScoreBoard = ({ frames, selectedFrame, onFramePress }) => {
+import { useGame } from '../../../providers/game';
+
+export const ScoreBoard = () => {
+  const { frames, selectedFrame, onFramePress } = useGame();
   return (
     <View style={styles.container}>
-      {frames.map(frame => {
+      {frames.map((frame) => {
         return (
           <Frame
             key={frame.id}
@@ -24,19 +27,19 @@ export const ScoreBoard = ({ frames, selectedFrame, onFramePress }) => {
 ScoreBoard.propTypes = {
   currentframe: PropTypes.object,
   frames: PropTypes.arrayOf(PropTypes.object),
-  onFramePress: PropTypes.func
+  onFramePress: PropTypes.func,
 };
 
 ScoreBoard.defaultProps = {
   selectedFrame: 0,
   frames: [],
-  onFramePress: () => {}
+  onFramePress: () => {},
 };
 
 export default ScoreBoard;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
-  }
+    flexDirection: 'row',
+  },
 });
