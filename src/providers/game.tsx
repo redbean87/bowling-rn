@@ -1,18 +1,11 @@
 import React from 'react';
 
-import { getGameData } from '../data';
-
-import gameReducer from '../reducers/game';
+import gameReducer, { INITIAL_STATE } from '../reducers/game';
 
 const GameContext = React.createContext();
 
-const initialState = {
-  ...getGameData(),
-  selectedFrame: 1
-};
-
 function GameProvider(props) {
-  const [state, dispatch] = React.useReducer(gameReducer, initialState);
+  const [state, dispatch] = React.useReducer(gameReducer, INITIAL_STATE);
   const value = React.useMemo(() => [state, dispatch], [state]);
   return <GameContext.Provider value={value} {...props} />;
 }
@@ -26,15 +19,13 @@ function useGame() {
 
   const [state, dispatch] = context;
 
-  const onFramePress = value =>
-    dispatch({ type: 'ON_FRAME_PRESS', payload: value });
+  const onFramePress = (frameIndex) =>
+    dispatch({ type: 'ON_FRAME_PRESS', payload: frameIndex });
 
   return {
+    ...state,
     state,
-    dispatch,
-    actions: {
-      onFramePress
-    }
+    onFramePress,
   };
 }
 
