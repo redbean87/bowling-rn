@@ -6,14 +6,14 @@ const data = (frameId, id = 0) => {
 
   /**
    * down
-   * 0: still staning
+   * 0: still standing
    * 1,2,3: knocked down on a particular roll
    */
   return {
     id,
     frameId,
     position,
-    down
+    down,
   };
 };
 

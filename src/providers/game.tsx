@@ -1,23 +1,15 @@
 import React from 'react';
 
-import gameReducer, { INITIAL_STATE } from '../reducers/game';
+import useGameReducer, { createGameContext } from '../reducers/game';
 
-const GameContext = React.createContext();
+const GameContext = createGameContext();
 
 function GameProvider(props) {
-  const [state, dispatch] = React.useReducer(gameReducer, INITIAL_STATE);
-  const value = React.useMemo(() => [state, dispatch], [state]);
-  return <GameContext.Provider value={value} {...props} />;
+  return <GameContext.Provider value={useGameReducer()} {...props} />;
 }
 
 function useGame() {
-  const context = React.useContext(GameContext);
-
-  if (!context) {
-    throw new Error(`useGame must be used within a GameProvider`);
-  }
-
-  const [state, dispatch] = context;
+  const [state, dispatch] = React.useContext(GameContext);
 
   const onFramePress = (frameIndex) =>
     dispatch({ type: 'ON_FRAME_PRESS', payload: frameIndex });

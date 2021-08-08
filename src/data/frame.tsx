@@ -14,8 +14,8 @@ const data = (gameId, id = 0) => ({
     pin(id, 6),
     pin(id, 7),
     pin(id, 8),
-    pin(id, 9)
-  ]
+    pin(id, 9),
+  ],
 });
 
 export default data;

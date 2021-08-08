@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { GameProvider } from '../../providers/game';
 
 import ScoreBoard from './Scoreboard';
-import Lane from '../../containers/Lane';
+import Lane from './Lane';
 import Footer from './Footer';
 
 export const GameIndex = () => {
