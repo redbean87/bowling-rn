@@ -2,17 +2,17 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 
-import Pin from '../../Pin';
+import Pin from '../Pin';
 
 export default class One extends React.PureComponent {
   static propTypes = {
     pin: PropTypes.object,
-    handlePinPress: PropTypes.func
+    handlePinPress: PropTypes.func,
   };
 
   static defaultProps = {
     pin: {},
-    handlePinPress: () => {}
+    handlePinPress: () => {},
   };
 
   render() {
@@ -36,10 +36,10 @@ export default class One extends React.PureComponent {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   column: {
     flex: 1,
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 });

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { createSelector } from 'reselect';
 import PropTypes from 'prop-types';
 
-import { useGame } from '../../../providers/game';
+import { useGame } from '../../providers/game';
 
 import RowFour from './RowFour';
 import RowThree from './RowThree';

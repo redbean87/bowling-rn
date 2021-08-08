@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import Frame from './Frame';
 
-import { useGame } from '../../../providers/game';
+import { useGame } from '../../providers/game';
 
 export const ScoreBoard = () => {
   const { frames, selectedFrame, onFramePress } = useGame();
