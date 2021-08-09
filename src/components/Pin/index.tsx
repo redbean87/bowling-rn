@@ -1,12 +1,9 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
-
 import PinDown from './PinDown';
 import PinUp from './PinUp';
 
-export const Pin = props => {
-  const { onPinPress, pin } = props;
+export const Pin = ({ onPinPress, pin }) => {
   const { down } = pin;
   return (
     <TouchableOpacity
@@ -19,18 +16,13 @@ export const Pin = props => {
   );
 };
 
-Pin.propTypes = {
-  pin: PropTypes.object,
-  onPinPress: PropTypes.func
-};
-
 Pin.defaultProps = {
   onPinPress: () => {},
-  pin: {}
+  pin: {},
 };
 
 export default Pin;
 
 const styles = StyleSheet.create({
-  container: {}
+  container: {},
 });

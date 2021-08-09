@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import PropTypes from 'prop-types';
+import { StyleSheet, Text, View } from 'react-native';
 
 export const PinCount = ({ display, tenthFrame }) => {
   return (
@@ -20,24 +19,19 @@ export const PinCount = ({ display, tenthFrame }) => {
   );
 };
 
-PinCount.propTypes = {
-  display: PropTypes.array,
-  tenthFrame: PropTypes.bool
-};
-
 PinCount.defaultProps = {
   display: [],
-  tenthFrame: false
+  tenthFrame: false,
 };
 
 export default PinCount;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   count: {
     flex: 1,
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });

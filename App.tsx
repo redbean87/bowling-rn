@@ -1,13 +1,19 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
-
+import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import Game from './src/components/Game';
+
+const queryClient = new QueryClient();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.AndroidSafeArea}>
-      <Game />
-    </SafeAreaView>
+    <QueryClientProvider client={queryClient}>
+      <SafeAreaView style={styles.AndroidSafeArea}>
+        <Game />
+      </SafeAreaView>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   );
 }
 

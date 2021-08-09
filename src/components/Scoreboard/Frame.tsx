@@ -1,7 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
-import PropTypes from 'prop-types';
-
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import PinCount from './PinCount';
 
 export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
@@ -28,22 +26,16 @@ export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
   );
 };
 
-Frame.propTypes = {
-  frame: PropTypes.object,
-  isCurrentFrame: PropTypes.bool,
-  onFramePress: PropTypes.func
-};
-
 Frame.defaultProps = {
   frame: {},
   isCurrentFrame: false,
-  onFramePress: () => {}
+  onFramePress: () => {},
 };
 
 export default Frame;
 
 const pinsDown = (pins = [], position = 0) => {
-  return pins.filter(pin => pin.down === position).length;
+  return pins.filter((pin) => pin.down === position).length;
 };
 
 const getStyles = (tenthFrame, isCurrentFrame) => {
@@ -63,41 +55,41 @@ const getStyles = (tenthFrame, isCurrentFrame) => {
 const commonStyes = {
   alignItems: 'center',
   borderWidth: 0.5,
-  borderColor: 'black'
+  borderColor: 'black',
 };
 
 const nonTenthFramestyles = StyleSheet.create({
   container: {
     ...commonStyes,
-    flex: 1
+    flex: 1,
   },
-  frame: {}
+  frame: {},
 });
 
 const tenthFramestyles = StyleSheet.create({
   container: {
     ...commonStyes,
-    flex: 1.5
+    flex: 1.5,
   },
-  frame: {}
+  frame: {},
 });
 
 const currentFrameCommonStyles = {
-  backgroundColor: 'grey'
+  backgroundColor: 'grey',
 };
 
 const nonTenthCurrentFrameStyles = StyleSheet.create({
   container: {
     ...commonStyes,
     ...currentFrameCommonStyles,
-    flex: 1
-  }
+    flex: 1,
+  },
 });
 
 const tenthCurrentFrameStyles = StyleSheet.create({
   container: {
     ...commonStyes,
     ...currentFrameCommonStyles,
-    flex: 1.5
-  }
+    flex: 1.5,
+  },
 });

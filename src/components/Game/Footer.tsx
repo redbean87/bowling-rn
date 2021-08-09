@@ -1,18 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
-
 import Button from '../Common/Button';
 
 const Footer = ({
-  currentRoll,
+  isStrikeBall,
   onNextRollPress,
   onStrikePress,
-  onSparePress
+  onSparePress,
 }) => {
   return (
     <View style={styles.container}>
-      {currentRoll === 1 ? (
+      {isStrikeBall ? (
         <View style={styles.strike}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
@@ -28,20 +26,12 @@ const Footer = ({
   );
 };
 
-Footer.propTypes = {
-  currentRoll: PropTypes.number,
-  onNextRollPress: PropTypes.func.isRequired,
-  onSparePress: PropTypes.func.isRequired,
-  onStrikePress: PropTypes.func.isRequired,
-  selectedFrame: PropTypes.number.isRequired
-};
-
 Footer.defaultProps = {
-  currentRoll: 0,
+  isStrikeBall: true,
   onNextRollPress: () => {},
   onSparePress: () => {},
   onStrikePress: () => {},
-  selectedFrame: 1
+  selectedFrame: 1,
 };
 
 export default Footer;
@@ -50,15 +40,15 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   strike: {
-    flex: 1
+    flex: 1,
   },
   game: {
-    flex: 1
+    flex: 1,
   },
   next: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

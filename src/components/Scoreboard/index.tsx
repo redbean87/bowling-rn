@@ -1,33 +1,25 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
-
+import useGame from '../../api';
 import Frame from './Frame';
 
-import { useGame } from '../../providers/game';
-
-export const ScoreBoard = () => {
-  const { frames, selectedFrame, onFramePress } = useGame();
+export const ScoreBoard = ({ selectedFrameIndex, setSelectedFrameIndex }) => {
+  const { data = {} } = useGame();
+  const { frames = [] } = data;
   return (
     <View style={styles.container}>
-      {frames.map((frame) => {
+      {frames.map((frame = {}, index) => {
         return (
           <Frame
             key={frame.id}
             frame={frame}
-            isCurrentFrame={frame.position === selectedFrame}
-            onFramePress={onFramePress}
+            isCurrentFrame={index === selectedFrameIndex}
+            onFramePress={() => setSelectedFrameIndex(index)}
           />
         );
       })}
     </View>
   );
-};
-
-ScoreBoard.propTypes = {
-  currentframe: PropTypes.object,
-  frames: PropTypes.arrayOf(PropTypes.object),
-  onFramePress: PropTypes.func,
 };
 
 ScoreBoard.defaultProps = {
