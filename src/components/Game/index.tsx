@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import useGame from '../../api';
 import { GameProvider } from '../../providers/game';
-import Lane from '../Lane';
-import ScoreBoard from '../Scoreboard';
+import Lane from './Lane';
+import ScoreBoard from './Scoreboard';
 import Footer from './Footer';
 
 const MAX_FRAME_INDEX = 9;

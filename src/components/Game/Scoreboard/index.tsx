@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import useGame from '../../api';
+import useGame from '../../../api';
 import Frame from './Frame';
 
 export const ScoreBoard = ({ selectedFrameIndex, setSelectedFrameIndex }) => {

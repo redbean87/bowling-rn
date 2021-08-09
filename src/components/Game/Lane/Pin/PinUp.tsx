@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
-import { circleBorderRadius } from '../../utils';
+import { circleBorderRadius } from '../../../../utils';
 
 export const PinUp = () => {
   return (

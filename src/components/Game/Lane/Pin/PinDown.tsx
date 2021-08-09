@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { circleBorderRadius } from '../../utils';
+import { circleBorderRadius } from '../../../../utils';
 
 export const PinDown = () => {
   return <View style={styles.container} />;
