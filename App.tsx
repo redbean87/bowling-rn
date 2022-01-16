@@ -1,7 +1,9 @@
-import React from 'react';
-import { Platform, SafeAreaView, StatusBar, StyleSheet } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { ReactQueryDevtools } from 'react-query/devtools';
+
 import Game from './src/components/Game';
 
 const queryClient = new QueryClient();
@@ -9,17 +11,16 @@ const queryClient = new QueryClient();
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <SafeAreaView style={styles.AndroidSafeArea}>
+      <SafeAreaView style={styles.container}>
         <Game />
+        <StatusBar style="auto" />
       </SafeAreaView>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
 
 const styles = StyleSheet.create({
-  AndroidSafeArea: {
+  container: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
   },
 });

@@ -1,0 +1,7 @@
+{
+  "generalConfiguration.sortOnBeforeSave": true,
+  "importStringConfiguration.maximumNumberOfImportExpressionsPerLine.count": 80,
+  "importStringConfiguration.maximumNumberOfImportExpressionsPerLine.type": "newLineEachExpressionAfterCountLimitExceptIfOnlyOne",
+  "importStringConfiguration.quoteMark": "double",
+  "importStringConfiguration.tabSize": 2
+}

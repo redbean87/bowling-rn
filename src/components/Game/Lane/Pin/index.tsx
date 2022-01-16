@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import PinDown from './PinDown';
-import PinUp from './PinUp';
+import { StyleSheet, TouchableOpacity } from "react-native";
+
+import PinDown from "./PinDown";
+import PinUp from "./PinUp";
 
 export const Pin = ({ onPinPress, pin }) => {
   const { down } = pin;

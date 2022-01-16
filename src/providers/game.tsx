@@ -1,6 +1,4 @@
-import React from 'react';
-
-import useGameReducer, { createGameContext } from '../reducers/game';
+import useGameReducer, { createGameContext } from "../reducers/game";
 
 const GameContext = createGameContext();
 

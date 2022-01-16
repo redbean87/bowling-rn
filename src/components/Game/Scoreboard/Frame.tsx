@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import PinCount from './PinCount';
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+
+import PinCount from "./PinCount";
 
 export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
   const { id, position, pins } = frame;

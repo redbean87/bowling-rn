@@ -1,7 +1,6 @@
-import React from 'react';
-import produce from 'immer';
+import produce from "immer";
 
-import { getGameData } from '../data';
+import { getGameData } from "../data";
 
 export const INITIAL_STATE = {
   ...getGameData(),
