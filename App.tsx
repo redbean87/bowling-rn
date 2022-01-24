@@ -1,20 +1,31 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { QueryClient, QueryClientProvider } from "react-query";
 
-import { QueryClient, QueryClientProvider } from 'react-query';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Game from './src/components/Game';
+import Game from "./src/components/Game";
+import Home from "./src/components/Home";
 
 const queryClient = new QueryClient();
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <SafeAreaView style={styles.container}>
-        <Game />
-        <StatusBar style="auto" />
-      </SafeAreaView>
+      <SafeAreaProvider>
+        <SafeAreaView style={styles.container}>
+          <NavigationContainer>
+            <Stack.Navigator>
+              <Stack.Screen name="Home" component={Home} />
+              <Stack.Screen name="Game" component={Game} />
+            </Stack.Navigator>
+          </NavigationContainer>
+          <StatusBar style="auto" />
+        </SafeAreaView>
+      </SafeAreaProvider>
     </QueryClientProvider>
   );
 }

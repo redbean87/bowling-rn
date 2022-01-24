@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import useGame from '../../api';
-import { GameProvider } from '../../providers/game';
-import Lane from './Lane';
-import ScoreBoard from './Scoreboard';
-import Footer from './Footer';
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+
+import useGame from "../../api";
+import { GameProvider } from "../../providers/game";
+import Footer from "./Footer";
+import Lane from "./Lane";
+import ScoreBoard from "./Scoreboard";
 
 const MAX_FRAME_INDEX = 9;
 
-const maxFrameCheck = (selectedFrameIndex) =>
+const maxFrameCheck = (selectedFrameIndex: number) =>
   selectedFrameIndex >= MAX_FRAME_INDEX;
 
-export const GameIndex = () => {
+export const Game = () => {
   const { data } = useGame();
 
   const [selectedFrameIndex, setSelectedFrameIndex] = useState(0);
   const [isStrikeBall, setIsStrikeBall] = useState(true);
 
-  const onFrameSelected = (index) => {
+  const onFrameSelected = (index: number) => {
     setSelectedFrameIndex(index);
     setIsStrikeBall(true);
   };
@@ -58,7 +59,7 @@ export const GameIndex = () => {
   );
 };
 
-export default GameIndex;
+export default Game;
 
 const styles = StyleSheet.create({
   container: {

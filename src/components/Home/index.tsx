@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 import { randomColorGenerator } from "../../utils";
 import Button from "../Common/Button";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const [buttonColor, setButtonColor] = useState('#841584');
 
   return (
@@ -14,6 +14,13 @@ const Home = () => {
         color={buttonColor}
         onPress={() => setButtonColor(randomColorGenerator())}
         title={buttonColor}
+        accessibilityLabel={undefined}
+      />
+      <Button
+        title="Go to Game"
+        onPress={() => navigation.navigate('Game')}
+        color={undefined}
+        accessibilityLabel={undefined}
       />
     </View>
   );

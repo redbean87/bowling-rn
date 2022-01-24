@@ -1,4 +1,4 @@
-import frame from './frame';
+import frame from "./frame";
 
 export const data = (id = 0) => ({
   id,
@@ -12,8 +12,8 @@ export const data = (id = 0) => ({
     frame(id, 6),
     frame(id, 7),
     frame(id, 8),
-    frame(id, 9)
-  ]
+    frame(id, 9),
+  ],
 });
 
 export default data;

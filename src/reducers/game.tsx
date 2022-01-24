@@ -1,4 +1,5 @@
 import produce from "immer";
+import { createContext, useReducer } from "react";
 
 import { getGameData } from "../data";
 
@@ -7,10 +8,10 @@ export const INITIAL_STATE = {
   selectedFrame: 1,
 };
 
-export const createGameContext = () => React.createContext(INITIAL_STATE);
+export const createGameContext = () => createContext(INITIAL_STATE);
 
 const gameReducer = () =>
-  React.useReducer(
+  useReducer(
     produce((draft, action) => {
       switch (action.type) {
         case 'ON_FRAME_PRESS': {

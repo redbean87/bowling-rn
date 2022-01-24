@@ -1,4 +1,4 @@
-import pin from './pin';
+import pin from "./pin";
 
 const data = (gameId, id = 0) => ({
   id,

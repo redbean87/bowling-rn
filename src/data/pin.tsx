@@ -1,6 +1,6 @@
-import * as utils from './utils';
+import * as utils from "./utils";
 
-const data = (frameId, id = 0) => {
+const data = (frameId: number, id = 0) => {
   const position = id + 1;
   const down = utils.randomNum(2);
 

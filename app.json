@@ -1,29 +1,29 @@
 {
   "expo": {
-    "name": "Bowling",
-    "slug": "Bowling",
-    "privacy": "public",
-    "platforms": ["ios", "android", "web"],
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
+    "android": {
+      "package": "com.cortezashley.bowling"
     },
     "assetBundlePatterns": ["**/*"],
+    "description": "Bowling Score Keeper",
+    "githubUrl": "https://github.com/redbean87/bowling-rn.git",
+    "icon": "./assets/icon.png",
     "ios": {
       "bundleIdentifier": "com.cortezashley.bowling",
       "supportsTablet": true
     },
-    "android": {
-      "package": "com.cortezashley.bowling"
+    "name": "Bowling",
+    "orientation": "portrait",
+    "platforms": ["ios", "android", "web"],
+    "privacy": "public",
+    "slug": "Bowling",
+    "splash": {
+      "backgroundColor": "#ffffff",
+      "image": "./assets/splash.png",
+      "resizeMode": "contain"
     },
-    "description": "Bowling Score Keeper",
-    "githubUrl": "https://github.com/redbean87/bowling-rn.git"
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "version": "1.0.0"
   }
 }
