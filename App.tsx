@@ -1,6 +1,4 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, StyleSheet } from "react-native";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,17 +13,20 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <SafeAreaProvider>
-        <SafeAreaView style={styles.container}>
-          <NavigationContainer>
-            <Stack.Navigator>
-              <Stack.Screen name="Home" component={Home} />
-              <Stack.Screen name="Game" component={Game} />
-            </Stack.Navigator>
-          </NavigationContainer>
-          <StatusBar style="auto" />
-        </SafeAreaView>
-      </SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Home}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen name="Game" component={Game} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
     </QueryClientProvider>
   );
 }
