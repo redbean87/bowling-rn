@@ -7,7 +7,15 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Game from "./src/components/Game";
 import Home from "./src/components/Home";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: process.env.NODE_ENV === 'production',
+      refetchOnWindowFocus: process.env.NODE_ENV === 'production',
+    },
+  },
+});
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
