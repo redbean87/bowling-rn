@@ -2,7 +2,6 @@ import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
 import useGame from "../../api";
-import { GameProvider } from "../../providers/game";
 import Footer from "./Footer";
 import Lane from "./Lane";
 import ScoreBoard from "./Scoreboard";
@@ -42,19 +41,17 @@ export const Game = () => {
 
   return (
     <View style={styles.container}>
-      <GameProvider>
-        <ScoreBoard
-          selectedFrameIndex={selectedFrameIndex}
-          setSelectedFrameIndex={onFrameSelected}
-        />
-        <Lane frame={data?.frames[selectedFrameIndex]} />
-        <Footer
-          isStrikeBall={isStrikeBall}
-          onStrikePress={onStrikePress}
-          onSparePress={onSparePress}
-          onNextRollPress={onNextRollPress}
-        />
-      </GameProvider>
+      <ScoreBoard
+        selectedFrameIndex={selectedFrameIndex}
+        setSelectedFrameIndex={onFrameSelected}
+      />
+      <Lane frame={data?.frames[selectedFrameIndex]} />
+      <Footer
+        isStrikeBall={isStrikeBall}
+        onStrikePress={onStrikePress}
+        onSparePress={onSparePress}
+        onNextRollPress={onNextRollPress}
+      />
     </View>
   );
 };
