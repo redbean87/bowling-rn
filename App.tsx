@@ -1,8 +1,8 @@
 import { SafeAreaView, StyleSheet } from "react-native";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import Game from "./src/components/Game";
 import Home from "./src/components/Home";
@@ -12,6 +12,7 @@ const queryClient = new QueryClient({
     queries: {
       retry: process.env.NODE_ENV === 'production',
       refetchOnWindowFocus: process.env.NODE_ENV === 'production',
+      // queryFn: createQueryFn('https://api_base_url'),
     },
   },
 });
@@ -24,6 +25,7 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
           <Stack.Navigator>
+            <Stack.Screen name="Game" component={Game} />
             <Stack.Screen
               name="Home"
               component={Home}
@@ -31,7 +33,6 @@ export default function App() {
                 headerShown: false,
               }}
             />
-            <Stack.Screen name="Game" component={Game} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>
