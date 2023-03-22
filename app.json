@@ -22,8 +22,17 @@
       "resizeMode": "contain"
     },
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/72ceed0d-ddca-4edc-abd4-7ff63fad4d8f"
     },
-    "version": "1.0.0"
+    "version": "1.0.0",
+    "extra": {
+      "eas": {
+        "projectId": "72ceed0d-ddca-4edc-abd4-7ff63fad4d8f"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    }
   }
 }
