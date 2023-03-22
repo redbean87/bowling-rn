@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 
-import useGame from "../../api";
 import Footer from "./Footer";
+import { GameProvider } from "./game-context";
 import Lane from "./Lane";
 import ScoreBoard from "./Scoreboard";
 
@@ -12,15 +12,9 @@ const maxFrameCheck = (selectedFrameIndex: number) =>
   selectedFrameIndex >= MAX_FRAME_INDEX;
 
 export const Game = () => {
-  const { data } = useGame();
-
   const [selectedFrameIndex, setSelectedFrameIndex] = useState(0);
   const [isStrikeBall, setIsStrikeBall] = useState(true);
 
-  const onFrameSelected = (index: number) => {
-    setSelectedFrameIndex(index);
-    setIsStrikeBall(true);
-  };
   const onStrikePress = () => {
     if (maxFrameCheck(selectedFrameIndex)) {
       return;
@@ -41,17 +35,16 @@ export const Game = () => {
 
   return (
     <View style={styles.container}>
-      <ScoreBoard
-        selectedFrameIndex={selectedFrameIndex}
-        setSelectedFrameIndex={onFrameSelected}
-      />
-      <Lane frame={data?.frames[selectedFrameIndex]} />
-      <Footer
-        isStrikeBall={isStrikeBall}
-        onStrikePress={onStrikePress}
-        onSparePress={onSparePress}
-        onNextRollPress={onNextRollPress}
-      />
+      <GameProvider>
+        <ScoreBoard />
+        <Lane />
+        <Footer
+          isStrikeBall={isStrikeBall}
+          onStrikePress={onStrikePress}
+          onSparePress={onSparePress}
+          onNextRollPress={onNextRollPress}
+        />
+      </GameProvider>
     </View>
   );
 };

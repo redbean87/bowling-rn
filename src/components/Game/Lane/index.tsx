@@ -1,12 +1,21 @@
+import { useContext } from "react";
 import { StyleSheet, View } from "react-native";
 import { createSelector } from "reselect";
 
+import useGame from "../../../api";
+import { GameContext } from "../game-context";
 import RowFour from "./RowFour";
 import RowOne from "./RowOne";
 import RowThree from "./RowThree";
 import RowTwo from "./RowTwo";
 
-const Lane = ({ frame = {} }) => {
+const Lane = () => {
+  const { frame } = useContext(GameContext);
+
+  if (!frame) {
+    return null;
+  }
+
   const [rowFour, rowThree, rowTwo, rowOne] = pinsByRow(frame);
 
   return (
