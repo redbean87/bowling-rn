@@ -1,11 +1,12 @@
-import { SafeAreaView, StyleSheet } from "react-native";
+import 'react-native-gesture-handler';
+import { SafeAreaView, StyleSheet } from 'react-native';
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import Game from "./src/components/Game";
-import Home from "./src/components/Home";
+import Game from './src/components/Game';
+import Home from './src/components/Home';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -24,8 +25,7 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <SafeAreaView style={styles.container}>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="Game" component={Game} />
+          <Stack.Navigator initialRouteName={'Game'}>
             <Stack.Screen
               name="Home"
               component={Home}
@@ -33,6 +33,7 @@ export default function App() {
                 headerShown: false,
               }}
             />
+            <Stack.Screen name="Game" component={Game} />
           </Stack.Navigator>
         </NavigationContainer>
       </SafeAreaView>

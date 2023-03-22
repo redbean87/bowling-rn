@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import Button from "../Common/Button";
+import Button from '../Common/Button';
 
 const Footer = ({
   isStrikeBall,
@@ -11,16 +11,16 @@ const Footer = ({
   return (
     <View style={styles.container}>
       {isStrikeBall ? (
-        <View style={styles.strike}>
+        <View style={styles.button}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
       ) : (
-        <View style={styles.strike}>
+        <View style={styles.button}>
           <Button onPress={onSparePress} title={'Spare'} />
         </View>
       )}
-      <View style={styles.next}>
-        <Button onPress={onNextRollPress} title={'Next Roll'} />
+      <View style={styles.button}>
+        <Button onPress={onNextRollPress} title={'Next'} />
       </View>
     </View>
   );
@@ -42,13 +42,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  strike: {
+  button: {
     flex: 1,
-  },
-  game: {
-    flex: 1,
-  },
-  next: {
-    flex: 1,
+    margin: 5,
   },
 });
