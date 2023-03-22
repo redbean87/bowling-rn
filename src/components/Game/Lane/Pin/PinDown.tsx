@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import { circleBorderRadius } from "../../../../utils";
+import { pinDiameter } from '../../../../utils';
 
 export const PinDown = () => {
   return <View style={styles.container} />;
@@ -12,9 +12,9 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',
     borderColor: 'black',
-    borderRadius: circleBorderRadius(),
+    borderRadius: pinDiameter(),
     borderWidth: 1,
-    paddingTop: '100%',
     width: '100%',
+    height: '100%',
   },
 });
