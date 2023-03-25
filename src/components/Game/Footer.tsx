@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import Button from '../Common/Button';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { GameContext } from './game-context';
 
 const Footer = () => {
