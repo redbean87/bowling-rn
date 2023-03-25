@@ -1,8 +1,38 @@
 import { StyleSheet, View } from 'react-native';
 
 import Button from '../Common/Button';
+import { useContext, useState } from 'react';
+import { GameContext } from './game-context';
 
-const Footer = ({ isStrikeBall, onNextPress, onStrikePress, onSparePress }) => {
+const MAX_FRAME_INDEX = 9;
+
+const maxFrameCheck = (selectedFrameIndex: number) =>
+  selectedFrameIndex >= MAX_FRAME_INDEX;
+
+const Footer = () => {
+  const { actions, selectedFrameIndex } = useContext(GameContext);
+  const { setSelectedFrameIndex } = actions;
+  const [isStrikeBall, setIsStrikeBall] = useState(true);
+
+  const onStrikePress = () => {
+    if (maxFrameCheck(selectedFrameIndex)) {
+      return;
+    }
+    setSelectedFrameIndex(selectedFrameIndex + 1);
+    setIsStrikeBall(true);
+  };
+  const onSparePress = () => {
+    if (maxFrameCheck(selectedFrameIndex)) {
+      return;
+    }
+    setSelectedFrameIndex(selectedFrameIndex + 1);
+    setIsStrikeBall(true);
+  };
+
+  const onNextPress = () => {
+    setIsStrikeBall(false);
+  };
+
   return (
     <View style={styles.container}>
       {isStrikeBall ? (

@@ -1,13 +1,12 @@
-import { useContext } from "react";
-import { StyleSheet, View } from "react-native";
-import { createSelector } from "reselect";
+import { useContext } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { createSelector } from 'reselect';
 
-import useGame from "../../../api";
-import { GameContext } from "../game-context";
-import RowFour from "./RowFour";
-import RowOne from "./RowOne";
-import RowThree from "./RowThree";
-import RowTwo from "./RowTwo";
+import { GameContext } from '../game-context';
+import RowFour from './RowFour';
+import RowOne from './RowOne';
+import RowThree from './RowThree';
+import RowTwo from './RowTwo';
 
 const Lane = () => {
   const { frame } = useContext(GameContext);
