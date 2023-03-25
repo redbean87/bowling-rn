@@ -2,12 +2,7 @@ import { StyleSheet, View } from 'react-native';
 
 import Button from '../Common/Button';
 
-const Footer = ({
-  isStrikeBall,
-  onNextRollPress,
-  onStrikePress,
-  onSparePress,
-}) => {
+const Footer = ({ isStrikeBall, onNextPress, onStrikePress, onSparePress }) => {
   return (
     <View style={styles.container}>
       {isStrikeBall ? (
@@ -20,7 +15,7 @@ const Footer = ({
         </View>
       )}
       <View style={styles.button}>
-        <Button onPress={onNextRollPress} title={'Next'} />
+        <Button onPress={onNextPress} title={'Next'} />
       </View>
     </View>
   );

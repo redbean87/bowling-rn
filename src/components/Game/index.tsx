@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-import Footer from "./Footer";
-import { GameProvider } from "./game-context";
-import Lane from "./Lane";
-import ScoreBoard from "./Scoreboard";
+import Footer from './Footer';
+import { GameProvider } from './game-context';
+import Lane from './Lane';
+import ScoreBoard from './Scoreboard';
 
 const MAX_FRAME_INDEX = 9;
 
@@ -29,7 +29,7 @@ export const Game = () => {
     setSelectedFrameIndex(selectedFrameIndex + 1);
     setIsStrikeBall(true);
   };
-  const onNextRollPress = () => {
+  const onNextPress = () => {
     setIsStrikeBall(false);
   };
 
@@ -42,7 +42,7 @@ export const Game = () => {
           isStrikeBall={isStrikeBall}
           onStrikePress={onStrikePress}
           onSparePress={onSparePress}
-          onNextRollPress={onNextRollPress}
+          onNextonNextPressRollPress={onNextPress}
         />
       </GameProvider>
     </View>
