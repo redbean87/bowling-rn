@@ -36,15 +36,15 @@ const Footer = () => {
   return (
     <View style={styles.container}>
       {isStrikeBall ? (
-        <View style={styles.button}>
+        <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
       ) : (
-        <View style={styles.button}>
+        <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onSparePress} title={'Spare'} />
         </View>
       )}
-      <View style={styles.button}>
+      <View style={[styles.button, styles.rightButton]}>
         <Button onPress={onNextPress} title={'Next'} />
       </View>
     </View>
@@ -69,6 +69,15 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    margin: 5,
+    marginTop: 4,
+    marginBottom: 4,
+  },
+  leftButton: {
+    marginLeft: 4,
+    marginRight: 2,
+  },
+  rightButton: {
+    marginLeft: 2,
+    marginRight: 4,
   },
 });
