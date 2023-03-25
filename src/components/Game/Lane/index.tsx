@@ -9,7 +9,8 @@ import RowThree from './RowThree';
 import RowTwo from './RowTwo';
 
 const Lane = () => {
-  const { frame } = useContext(GameContext);
+  const { data } = useContext(GameContext);
+  const { frame } = data;
 
   if (!frame) {
     return null;

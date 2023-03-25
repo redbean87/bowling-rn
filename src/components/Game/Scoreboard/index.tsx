@@ -5,8 +5,10 @@ import { GameContext } from '../game-context';
 import Frame from './Frame';
 
 export const ScoreBoard = () => {
-  const { actions, frames, selectedFrameIndex } = useContext(GameContext);
-  const { setSelectedFrameIndex } = actions;
+  const { actions, data } = useContext(GameContext);
+
+  const { setFrameIndex } = actions;
+  const { frames, frameIndex } = data;
 
   return (
     <View style={styles.container}>
@@ -15,8 +17,8 @@ export const ScoreBoard = () => {
           <Frame
             key={frame.id}
             frame={frame}
-            isCurrentFrame={index === selectedFrameIndex}
-            onFramePress={() => setSelectedFrameIndex(index)}
+            isCurrentFrame={index === frameIndex}
+            onFramePress={() => setFrameIndex(index)}
           />
         );
       })}

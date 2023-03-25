@@ -4,34 +4,11 @@ import Button from '../Common/Button';
 import { useContext, useState } from 'react';
 import { GameContext } from './game-context';
 
-const MAX_FRAME_INDEX = 9;
-
-const maxFrameCheck = (selectedFrameIndex: number) =>
-  selectedFrameIndex >= MAX_FRAME_INDEX;
-
 const Footer = () => {
-  const { actions, selectedFrameIndex } = useContext(GameContext);
-  const { setSelectedFrameIndex } = actions;
-  const [isStrikeBall, setIsStrikeBall] = useState(true);
+  const { actions, data } = useContext(GameContext);
 
-  const onStrikePress = () => {
-    if (maxFrameCheck(selectedFrameIndex)) {
-      return;
-    }
-    setSelectedFrameIndex(selectedFrameIndex + 1);
-    setIsStrikeBall(true);
-  };
-  const onSparePress = () => {
-    if (maxFrameCheck(selectedFrameIndex)) {
-      return;
-    }
-    setSelectedFrameIndex(selectedFrameIndex + 1);
-    setIsStrikeBall(true);
-  };
-
-  const onNextPress = () => {
-    setIsStrikeBall(false);
-  };
+  const { onStrikePress, onSparePress, onNextPress } = actions;
+  const { isStrikeBall } = data;
 
   return (
     <View style={styles.container}>
@@ -51,13 +28,7 @@ const Footer = () => {
   );
 };
 
-Footer.defaultProps = {
-  isStrikeBall: true,
-  onNextRollPress: () => {},
-  onSparePress: () => {},
-  onStrikePress: () => {},
-  selectedFrame: 1,
-};
+Footer.defaultProps = {};
 
 export default Footer;
 
