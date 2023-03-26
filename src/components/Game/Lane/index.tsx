@@ -1,16 +1,19 @@
-import { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createSelector } from 'reselect';
 
-import { GameContext } from '../game-context';
+import { useGameStore } from '../store';
 import RowFour from './RowFour';
 import RowOne from './RowOne';
 import RowThree from './RowThree';
 import RowTwo from './RowTwo';
+import { useGame } from '../../../api';
 
 const Lane = () => {
-  const { data } = useContext(GameContext);
-  const { frame } = data;
+  const { data } = useGame();
+  const { frameIndex } = useGameStore();
+
+  const frames = data?.frames ?? [];
+  const frame = frames[frameIndex];
 
   if (!frame) {
     return null;

@@ -1,0 +1,20 @@
+{
+  "game": {
+    "id": 0,
+    "frames": [
+      {
+        "id": 0,
+        "gameId": 0,
+        "position": 0,
+        "pins": [
+          {
+            "id": 0,
+            "frameId": 0,
+            "position": 0,
+            "down": 0
+          }
+        ]
+      }
+    ]
+  }
+}

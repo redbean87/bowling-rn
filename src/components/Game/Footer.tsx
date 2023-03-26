@@ -1,14 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 
 import Button from '../Common/Button';
-import { useContext } from 'react';
-import { GameContext } from './game-context';
+import { useGameStore } from './store';
 
 const Footer = () => {
-  const { actions, data } = useContext(GameContext);
+  const { actions, isStrikeBall } = useGameStore();
 
   const { onStrikePress, onSparePress, onNextPress } = actions;
-  const { isStrikeBall } = data;
 
   return (
     <View style={styles.container}>

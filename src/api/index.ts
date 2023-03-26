@@ -1,10 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getGameData } from '../data';
 
-const fetchGame = async () => {
-  return await Promise.resolve(getGameData());
-};
+export const fetchGame = async () => await Promise.resolve(getGameData());
 
-export default function useGame() {
-  return useQuery(['game'], () => fetchGame());
-}
+export const useGame = () => useQuery(['game'], () => fetchGame());

@@ -1,14 +1,15 @@
-import { useContext } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { GameContext } from '../game-context';
+import { useGameStore } from '../store';
 import Frame from './Frame';
+import { useGame } from '../../../api';
 
 export const ScoreBoard = () => {
-  const { actions, data } = useContext(GameContext);
+  const { data } = useGame();
+  const { actions, frameIndex } = useGameStore();
 
   const { setFrameIndex } = actions;
-  const { frames, frameIndex } = data;
+  const frames = data?.frames ?? [];
 
   return (
     <View style={styles.container}>
