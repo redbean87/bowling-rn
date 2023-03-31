@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { useState } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import { randomColorGenerator } from "../../utils";
-import Button from "../Common/Button";
+import { randomColorGenerator } from '../../utils';
+import Button from '../Common/Button';
 
 const Home = ({ navigation }) => {
   const [buttonColor, setButtonColor] = useState('#841584');

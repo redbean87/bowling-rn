@@ -1,4 +1,4 @@
-import { Button } from "react-native";
+import { Button } from 'react-native';
 
 export const ButtonIndex = ({ onPress, title, color, accessibilityLabel }) => {
   return (

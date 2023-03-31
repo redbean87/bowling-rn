@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 
-import { useGameStore } from '../store';
 import Frame from './Frame';
 import { useGame } from '../../../api';
+import { useGameStore } from '../store';
 
 export const ScoreBoard = () => {
   const { data } = useGame();

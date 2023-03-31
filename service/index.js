@@ -2,6 +2,7 @@ import 'dotenv/config';
 import express from 'express';
 import fs from 'fs';
 import swaggerUi from 'swagger-ui-express';
+
 import { users } from './routes/users.js';
 
 const PORT = process.env.PORT;

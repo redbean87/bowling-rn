@@ -43,6 +43,7 @@
     "clean": "yarn rm-node_modules && yarn",
     "eject": "expo eject",
     "ios": "expo start --ios",
+    "lint:fix": "eslint . --ext .js --ext .jsx --ext .ts --ext .tsx --fix",
     "publish": "expo publish",
     "rm-node_modules": "rm -rf node_modules",
     "start": "expo start",

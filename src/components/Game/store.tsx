@@ -1,6 +1,3 @@
-import React, { useState } from 'react';
-
-import { fetchGame, useGame } from '../../api';
 import { create } from 'zustand';
 
 const MAX_FRAME_INDEX = 9;

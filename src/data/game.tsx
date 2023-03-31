@@ -1,4 +1,4 @@
-import frame from "./frame";
+import frame from './frame';
 
 export const data = (id = 0) => ({
   id,

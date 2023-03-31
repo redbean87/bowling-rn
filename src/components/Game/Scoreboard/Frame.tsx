@@ -1,10 +1,10 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-import PinCount from "./PinCount";
+import PinCount from './PinCount';
 
 export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
   const { id, position, pins } = frame;
-  const tenthFrame = position == 10;
+  const tenthFrame = Number(position) === 10;
   const display = [pinsDown(pins, 1), pinsDown(pins, 2), pinsDown(pins, 3)];
 
   const styles = getStyles(tenthFrame, isCurrentFrame);

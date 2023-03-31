@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
-import Button from '../Common/Button';
 import { useGameStore } from './store';
+import Button from '../Common/Button';
 
 const Footer = () => {
   const { actions, isStrikeBall } = useGameStore();
