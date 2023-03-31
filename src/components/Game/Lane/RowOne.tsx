@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import Pin from "./Pin";
+import Pin from './Pin';
 
 const One = (pin, handlePinPress) => {
   return (

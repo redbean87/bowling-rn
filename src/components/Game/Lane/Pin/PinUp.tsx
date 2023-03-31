@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import { circleBorderRadius } from "../../../../utils";
+import { pinDiameter, pinRadius } from '../../../../utils';
 
 export const PinUp = () => {
   return (
@@ -16,19 +16,16 @@ const styles = StyleSheet.create({
   body: {
     backgroundColor: 'white',
     borderColor: 'black',
-    borderRadius: circleBorderRadius(),
+    borderRadius: pinDiameter(),
     borderWidth: 1,
     width: '100%',
+    height: '100%',
   },
   head: {
-    backgroundColor: 'white',
-    borderColor: 'black',
-    borderRadius: circleBorderRadius(),
+    borderRadius: pinRadius(),
     borderWidth: 1,
-    paddingTop: '60%',
-    width: '60%',
-    marginLeft: '20%',
-    marginBottom: '20%',
-    marginTop: '20%',
+    width: pinRadius(),
+    height: pinRadius(),
+    margin: pinRadius() / 2 - 1,
   },
 });

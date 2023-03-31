@@ -1,20 +1,25 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import useGame from "../../../api";
-import Frame from "./Frame";
+import { useGameStore } from '../store';
+import Frame from './Frame';
+import { useGame } from '../../../api';
 
-export const ScoreBoard = ({ selectedFrameIndex, setSelectedFrameIndex }) => {
-  const { data = {} } = useGame();
-  const { frames = [] } = data;
+export const ScoreBoard = () => {
+  const { data } = useGame();
+  const { actions, frameIndex } = useGameStore();
+
+  const { setFrameIndex } = actions;
+  const frames = data?.frames ?? [];
+
   return (
     <View style={styles.container}>
-      {frames.map((frame = {}, index) => {
+      {frames?.map((frame = {}, index) => {
         return (
           <Frame
             key={frame.id}
             frame={frame}
-            isCurrentFrame={index === selectedFrameIndex}
-            onFramePress={() => setSelectedFrameIndex(index)}
+            isCurrentFrame={index === frameIndex}
+            onFramePress={() => setFrameIndex(index)}
           />
         );
       })}
@@ -22,11 +27,7 @@ export const ScoreBoard = ({ selectedFrameIndex, setSelectedFrameIndex }) => {
   );
 };
 
-ScoreBoard.defaultProps = {
-  selectedFrame: 0,
-  frames: [],
-  onFramePress: () => {},
-};
+ScoreBoard.defaultProps = {};
 
 export default ScoreBoard;
 

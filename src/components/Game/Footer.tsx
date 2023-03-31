@@ -1,38 +1,32 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View } from 'react-native';
 
-import Button from "../Common/Button";
+import Button from '../Common/Button';
+import { useGameStore } from './store';
 
-const Footer = ({
-  isStrikeBall,
-  onNextRollPress,
-  onStrikePress,
-  onSparePress,
-}) => {
+const Footer = () => {
+  const { actions, isStrikeBall } = useGameStore();
+
+  const { onStrikePress, onSparePress, onNextPress } = actions;
+
   return (
     <View style={styles.container}>
       {isStrikeBall ? (
-        <View style={styles.strike}>
+        <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
       ) : (
-        <View style={styles.strike}>
+        <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onSparePress} title={'Spare'} />
         </View>
       )}
-      <View style={styles.next}>
-        <Button onPress={onNextRollPress} title={'Next Roll'} />
+      <View style={[styles.button, styles.rightButton]}>
+        <Button onPress={onNextPress} title={'Next'} />
       </View>
     </View>
   );
 };
 
-Footer.defaultProps = {
-  isStrikeBall: true,
-  onNextRollPress: () => {},
-  onSparePress: () => {},
-  onStrikePress: () => {},
-  selectedFrame: 1,
-};
+Footer.defaultProps = {};
 
 export default Footer;
 
@@ -42,13 +36,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  strike: {
+  button: {
     flex: 1,
+    marginTop: 4,
+    marginBottom: 4,
   },
-  game: {
-    flex: 1,
+  leftButton: {
+    marginLeft: 4,
+    marginRight: 2,
   },
-  next: {
-    flex: 1,
+  rightButton: {
+    marginLeft: 2,
+    marginRight: 4,
   },
 });
