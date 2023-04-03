@@ -6,9 +6,8 @@ import { useGameStore } from '../store';
 
 export const ScoreBoard = () => {
   const { data } = useGame();
-  const { actions, frameIndex } = useGameStore();
+  const { frameIndex, setFrameIndex } = useGameStore();
 
-  const { setFrameIndex } = actions;
   const frames = data?.frames ?? [];
 
   return (

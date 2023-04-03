@@ -4,38 +4,58 @@ const MAX_FRAME_INDEX = 9;
 
 const maxFrameCheck = (frameIndex: number) => frameIndex >= MAX_FRAME_INDEX;
 
-export const useGameStore = create((set, get) => {
+interface GameStore {
+  frameIndex: number;
+  rollIndex: number;
+  isStrikeBall: () => boolean;
+  setFrameIndex: (value: number) => void;
+  onStrikePress: () => void;
+  onSparePress: () => void;
+  onNextPress: () => void;
+}
+
+export const useGameStore = create<GameStore>()((set, get) => {
   return {
-    frames: [],
     frameIndex: 0,
-    frame: {},
-    isStrikeBall: true,
-    actions: {
-      setFrameIndex: (value: number) => set(() => ({ frameIndex: value })),
-      setIsStrikeBall: (value: boolean) => set(() => ({ isStrikeBall: value })),
-      onStrikePress: () =>
-        set((state) => {
-          const { frameIndex } = state;
-          if (maxFrameCheck(frameIndex)) {
-            return {};
-          }
-          return {
-            frameIndex: frameIndex + 1,
-            isStrikeBall: true,
-          };
-        }),
-      onSparePress: () =>
-        set((state) => {
-          const { frameIndex } = state;
-          if (maxFrameCheck(frameIndex)) {
-            return {};
-          }
-          return {
-            frameIndex: frameIndex + 1,
-            isStrikeBall: true,
-          };
-        }),
-      onNextPress: () => set(() => ({ isStrikeBall: false })),
+    rollIndex: 0,
+    isStrikeBall: () => {
+      const { frameIndex, rollIndex } = get();
+      if (maxFrameCheck(frameIndex)) {
+        return true;
+      }
+      return rollIndex === 0;
     },
+    setFrameIndex: (value: number) => set(() => ({ frameIndex: value })),
+    onStrikePress: () =>
+      set((state) => {
+        const { frameIndex } = state;
+        if (maxFrameCheck(frameIndex)) {
+          return {};
+        }
+        return {
+          frameIndex: frameIndex + 1,
+        };
+      }),
+    onSparePress: () =>
+      set((state) => {
+        const { frameIndex } = state;
+        if (maxFrameCheck(frameIndex)) {
+          return {};
+        }
+        return {
+          frameIndex: frameIndex + 1,
+        };
+      }),
+    onNextPress: () =>
+      set((state) => {
+        const { frameIndex, rollIndex } = state;
+        if (maxFrameCheck(frameIndex)) {
+          return {};
+        }
+        if (rollIndex > 0) {
+          return { frameIndex: frameIndex + 1, rollIndex: 0 };
+        }
+        return { rollIndex: 1 };
+      }),
   };
 });

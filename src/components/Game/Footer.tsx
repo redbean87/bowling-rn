@@ -4,13 +4,12 @@ import { useGameStore } from './store';
 import Button from '../Common/Button';
 
 const Footer = () => {
-  const { actions, isStrikeBall } = useGameStore();
-
-  const { onStrikePress, onSparePress, onNextPress } = actions;
+  const { isStrikeBall, onStrikePress, onSparePress, onNextPress } =
+    useGameStore();
 
   return (
     <View style={styles.container}>
-      {isStrikeBall ? (
+      {isStrikeBall() ? (
         <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
