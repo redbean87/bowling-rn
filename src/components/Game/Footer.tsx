@@ -1,15 +1,22 @@
+import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 import { useGameStore } from './store';
 import Button from '../Common/Button';
 
 const Footer = () => {
-  const { isStrikeBall, onStrikePress, onSparePress, onNextPress } =
+  const { rollIndex, isStrikeBall, onStrikePress, onSparePress, onNextPress } =
     useGameStore();
+
+  const showStrikeButton = useMemo(() => {
+    if (rollIndex !== undefined) {
+      return isStrikeBall();
+    }
+  }, [isStrikeBall, rollIndex]);
 
   return (
     <View style={styles.container}>
-      {isStrikeBall() ? (
+      {showStrikeButton ? (
         <View style={[styles.button, styles.leftButton]}>
           <Button onPress={onStrikePress} title={'Strike'} />
         </View>
@@ -24,8 +31,6 @@ const Footer = () => {
     </View>
   );
 };
-
-Footer.defaultProps = {};
 
 export default Footer;
 

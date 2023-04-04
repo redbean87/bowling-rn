@@ -3,8 +3,10 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import PinDown from './PinDown';
 import PinUp from './PinUp';
 import { pinDiameter } from '../../../../utils';
+import { useGameStore } from '../../store';
 
-export const Pin = ({ onPinPress, pin }) => {
+export const Pin = ({ pin = {} }) => {
+  const { onPinPress } = useGameStore();
   const { down } = pin;
   return (
     <TouchableOpacity
@@ -15,11 +17,6 @@ export const Pin = ({ onPinPress, pin }) => {
       {down ? <PinDown /> : <PinUp />}
     </TouchableOpacity>
   );
-};
-
-Pin.defaultProps = {
-  onPinPress: () => {},
-  pin: {},
 };
 
 export default Pin;

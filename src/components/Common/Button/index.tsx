@@ -1,6 +1,11 @@
 import { Button } from 'react-native';
 
-export const ButtonIndex = ({ onPress, title, color, accessibilityLabel }) => {
+export const ButtonIndex = ({
+  onPress = () => {},
+  title = '',
+  color = undefined,
+  accessibilityLabel = undefined,
+}) => {
   return (
     <Button
       onPress={onPress}
@@ -9,11 +14,6 @@ export const ButtonIndex = ({ onPress, title, color, accessibilityLabel }) => {
       accessibilityLabel={accessibilityLabel}
     />
   );
-};
-
-ButtonIndex.defaultProps = {
-  onPress: () => {},
-  title: '',
 };
 
 export default ButtonIndex;

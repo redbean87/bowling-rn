@@ -2,28 +2,23 @@ import { StyleSheet, View } from 'react-native';
 
 import Pin from './Pin';
 
-const Two = ({ pins, handlePinPress }) => {
+const Two = ({ pins = [] }) => {
   const [pinTwo, pinThree] = pins;
   return (
     <View style={styles.container}>
       <View style={styles.column} />
       <View style={styles.column} />
       <View style={styles.column}>
-        <Pin pin={pinTwo} onPinPress={handlePinPress} />
+        <Pin pin={pinTwo} />
       </View>
       <View style={styles.column} />
       <View style={styles.column}>
-        <Pin pin={pinThree} onPinPress={handlePinPress} />
+        <Pin pin={pinThree} />
       </View>
       <View style={styles.column} />
       <View style={styles.column} />
     </View>
   );
-};
-
-Two.defaultProps = {
-  pins: [],
-  handlePinPress: () => {},
 };
 
 export default Two;

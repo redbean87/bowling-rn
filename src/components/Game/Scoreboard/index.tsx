@@ -1,18 +1,14 @@
 import { StyleSheet, View } from 'react-native';
 
 import Frame from './Frame';
-import { useGame } from '../../../api';
 import { useGameStore } from '../store';
 
 export const ScoreBoard = () => {
-  const { data } = useGame();
-  const { frameIndex, setFrameIndex } = useGameStore();
-
-  const frames = data?.frames ?? [];
+  const { frames, frameIndex, setFrameIndex } = useGameStore();
 
   return (
     <View style={styles.container}>
-      {frames?.map((frame = {}, index) => {
+      {frames?.map((frame = {}, index: number) => {
         return (
           <Frame
             key={frame.id}
@@ -25,8 +21,6 @@ export const ScoreBoard = () => {
     </View>
   );
 };
-
-ScoreBoard.defaultProps = {};
 
 export default ScoreBoard;
 

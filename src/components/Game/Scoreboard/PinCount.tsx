@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export const PinCount = ({ display, tenthFrame }) => {
+export const PinCount = ({ display = [], tenthFrame = false }) => {
   return (
     <View style={styles.container}>
       <View style={styles.count}>
@@ -16,11 +16,6 @@ export const PinCount = ({ display, tenthFrame }) => {
       )}
     </View>
   );
-};
-
-PinCount.defaultProps = {
-  display: [],
-  tenthFrame: false,
 };
 
 export default PinCount;

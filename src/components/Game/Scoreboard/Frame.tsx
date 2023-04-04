@@ -2,7 +2,11 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import PinCount from './PinCount';
 
-export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
+export const Frame = ({
+  frame = {},
+  isCurrentFrame = false,
+  onFramePress = () => {},
+}) => {
   const { id, position, pins } = frame;
   const tenthFrame = Number(position) === 10;
   const display = [pinsDown(pins, 1), pinsDown(pins, 2), pinsDown(pins, 3)];
@@ -26,12 +30,6 @@ export const Frame = ({ frame, isCurrentFrame, onFramePress }) => {
   );
 };
 
-Frame.defaultProps = {
-  frame: {},
-  isCurrentFrame: false,
-  onFramePress: () => {},
-};
-
 export default Frame;
 
 const pinsDown = (pins = [], position = 0) => {
@@ -49,7 +47,7 @@ const getStyles = (tenthFrame, isCurrentFrame) => {
   if (isCurrentFrame) {
     return nonTenthCurrentFrameStyles;
   }
-  return nonTenthFramestyles;
+  return nonTenthFrameStyles;
 };
 
 const commonStyes = {
@@ -58,7 +56,7 @@ const commonStyes = {
   borderColor: 'black',
 };
 
-const nonTenthFramestyles = StyleSheet.create({
+const nonTenthFrameStyles = StyleSheet.create({
   container: {
     ...commonStyes,
     flex: 1,

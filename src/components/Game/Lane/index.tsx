@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { createSelector } from 'reselect';
 
@@ -5,15 +6,16 @@ import RowFour from './RowFour';
 import RowOne from './RowOne';
 import RowThree from './RowThree';
 import RowTwo from './RowTwo';
-import { useGame } from '../../../api';
 import { useGameStore } from '../store';
 
 const Lane = () => {
-  const { data } = useGame();
-  const { frameIndex } = useGameStore();
+  const { frames, frameIndex } = useGameStore();
 
-  const frames = data?.frames ?? [];
-  const frame = frames[frameIndex];
+  const frame = useMemo(() => {
+    if (frameIndex !== undefined) {
+      return frames[frameIndex];
+    }
+  }, [frames, frameIndex]);
 
   if (!frame) {
     return null;
