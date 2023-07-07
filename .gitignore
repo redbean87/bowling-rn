@@ -91,3 +91,4 @@ RNTester/build
 
 # expo build
 /web-build
+/dist
