@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "@expo/webpack-config": "^18.1.1",
     "@react-native-async-storage/async-storage": "1.18.2",
     "@react-navigation/native": "6.1.6",
     "@react-navigation/native-stack": "6.9.12",
@@ -21,6 +20,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.21.3",
+    "@expo/webpack-config": "^18.1.1",
     "@tsconfig/react-native": "2.0.3",
     "@types/jest": "29.5.0",
     "@types/react": "18.0.27",
