@@ -33,6 +33,9 @@
     },
     "runtimeVersion": {
       "policy": "sdkVersion"
+    },
+    "web": {
+      "bundler": "metro"
     }
   }
 }
