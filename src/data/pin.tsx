@@ -1,8 +1,10 @@
 // import * as utils from './utils';
 
-const data = (frameId: number, id = 0) => {
+import { Pin } from '../models/pin';
+
+const data = (frameId: number, id = 0): Pin => {
   const position = id + 1;
-  const down = true;
+  const down = 0;
   // const down = utils.randomNum(2);
 
   /**

@@ -1,6 +1,7 @@
 import pin from './pin';
+import { Frame } from '../models/frame';
 
-const data = (gameId, id = 0) => ({
+const data = (gameId: number, id = 0): Frame => ({
   id,
   gameId,
   position: id + 1,

@@ -1,6 +1,7 @@
 import frame from './frame';
+import { Game } from '../models/game';
 
-export const data = (id = 0) => ({
+export const data = (id = 0): Game => ({
   id,
   frames: [
     frame(id, 0),
