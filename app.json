@@ -14,7 +14,6 @@
     "name": "Bowling",
     "orientation": "portrait",
     "platforms": ["ios", "android", "web"],
-    "privacy": "public",
     "slug": "Bowling",
     "splash": {
       "backgroundColor": "#ffffff",
