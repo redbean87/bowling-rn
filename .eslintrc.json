@@ -1,6 +1,7 @@
 {
   "extends": [
     "react-app",
+    "react-native",
     "plugin:css-import-order/recommended",
     "plugin:prettier/recommended"
   ],
