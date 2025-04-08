@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+ ---
+description: Domain-specific rules and guidelines for the bowling application
+globs: ["**/*.{ts,tsx,js,jsx}"]
+alwaysApply: true
+---
+
+# Bowling Application Rules
+
+## Core Concepts
+- The application is a bowling score tracking and management system
+- Focus on accurate score calculation and game state management
+- Support for both individual and team play
+- Maintain historical data and statistics
+
+## Game Rules
+- Follow standard 10-pin bowling rules
+- Support for strike and spare calculations
+- Proper handling of the 10th frame special rules
+- Accurate score tracking for each frame
+- Support for multiple game sessions
+
+## Data Management
+- Maintain player profiles and statistics
+- Track game history and achievements
+- Store league and tournament information
+- Handle team compositions and rankings
+
+## User Experience
+- Clear display of current game state
+- Intuitive score input interface
+- Real-time score updates
+- Easy navigation between games and statistics
+- Support for both casual and competitive play
+
+## Technical Requirements
+- Ensure accurate score calculations
+- Maintain data consistency
+- Handle concurrent game sessions
+- Support offline functionality
+- Implement proper error handling for invalid inputs
+
+## Features
+- Score tracking and calculation
+- Player statistics and history
+- League and tournament management
+- Team management
+- Achievement tracking
+- Social features (optional)
+
+## Data Models
+- Player profiles
+- Game sessions
+- Frames and scores
+- Teams and leagues
+- Tournaments
+- Statistics and achievements

@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Your rule content
+
+- You can @ files here
+- You can use markdown but dont have to
+
+---
+description: Linting rules for the React Native project
+globs: ["**/*.{ts,tsx,js,jsx}"]
+alwaysApply: true
+---
+
+# Linting Rules
+
+## TypeScript/JavaScript Rules
+- Always use TypeScript for new files
+- Use explicit return types for functions
+- Avoid `any` type - use proper type definitions
+- Use interfaces for object types
+- Keep functions small and focused (max 20 lines)
+- Use meaningful variable and function names
+- Avoid magic numbers - use constants
+- Use proper error handling with try/catch
+
+## React/React Native Rules
+- Use functional components with hooks
+- Keep components small and focused
+- Use proper prop types
+- Avoid inline styles - use StyleSheet
+- Use proper navigation patterns
+- Handle loading and error states
+- Use proper state management
+- Follow React Native best practices
+
+## Code Organization
+- Keep imports organized (use import-sorter)
+- Group related components together
+- Use proper file naming conventions
+- Keep files in appropriate directories
+- Use proper folder structure
+
+## Performance
+- Use proper memoization (useMemo, useCallback)
+- Avoid unnecessary re-renders
+- Use proper image optimization
+- Follow React Native performance best practices
+
+## Testing
+- Write unit tests for components
+- Write tests for business logic
+- Use proper test naming conventions
+- Keep tests focused and maintainable
+
+## Documentation
+- Add JSDoc comments for functions
+- Document complex logic
+- Keep README up to date
+- Document API endpoints
+- Document component props
+
+## Git
+- Use meaningful commit messages
+- Keep commits focused
+- Follow branching strategy
+- Review code before committing
