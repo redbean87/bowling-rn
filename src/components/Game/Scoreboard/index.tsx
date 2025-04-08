@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import Frame from './Frame';
-import { useGameStore } from '../store';
+import { useGameStore } from '../../../store/game';
 
 export const ScoreBoard = () => {
   const { frames, frameIndex, setFrameIndex } = useGameStore();

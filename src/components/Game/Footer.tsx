@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { useGameStore } from './store';
+import { useGameStore } from '../../store/game';
 import Button from '../Common/Button';
 
 const Footer = () => {

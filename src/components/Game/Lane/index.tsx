@@ -6,7 +6,7 @@ import RowFour from './RowFour';
 import RowOne from './RowOne';
 import RowThree from './RowThree';
 import RowTwo from './RowTwo';
-import { useGameStore } from '../store';
+import { useGameStore } from '../../../store/game';
 
 const Lane = () => {
   const { frames, frameIndex } = useGameStore();
