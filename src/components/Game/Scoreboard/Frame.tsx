@@ -1,15 +1,28 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 
 import PinCount from './PinCount';
+import type { Frame as FrameType } from '../../../models/frame';
 
-export const Frame = ({
-  frame = {},
-  isCurrentFrame = false,
-  onFramePress = () => {},
-}) => {
-  const { id, position, pins } = frame;
-  const tenthFrame = Number(position) === 10;
-  const display = [pinsDown(pins, 1), pinsDown(pins, 2), pinsDown(pins, 3)];
+interface FrameProps {
+  frame: FrameType;
+  isCurrentFrame: boolean;
+  onFramePress: (position: number) => void;
+}
+
+interface FrameStyles {
+  container: ViewStyle;
+  frame: ViewStyle;
+}
+
+export const Frame = ({ frame, isCurrentFrame, onFramePress }: FrameProps) => {
+  const { id, position, pins, score, isStrike, isSpare } = frame;
+  const tenthFrame = position === 10;
+
+  const display: number[] = [
+    pins.filter(pin => pin.isDown && pin.rollNumber === 1).length,
+    pins.filter(pin => pin.isDown && pin.rollNumber === 2).length,
+    pins.filter(pin => pin.isDown && pin.rollNumber === 3).length,
+  ];
 
   const styles = getStyles(tenthFrame, isCurrentFrame);
 
@@ -24,19 +37,13 @@ export const Frame = ({
       </View>
       <PinCount display={display} tenthFrame={tenthFrame} />
       <View>
-        <Text>{id}</Text>
+        <Text>{score || 0}</Text>
       </View>
     </TouchableOpacity>
   );
 };
 
-export default Frame;
-
-const pinsDown = (pins = [], position = 0) => {
-  return pins.filter((pin) => pin.down === position).length;
-};
-
-const getStyles = (tenthFrame, isCurrentFrame) => {
+const getStyles = (tenthFrame: boolean, isCurrentFrame: boolean): FrameStyles => {
   if (tenthFrame) {
     if (isCurrentFrame) {
       return tenthCurrentFrameStyles;
@@ -50,13 +57,12 @@ const getStyles = (tenthFrame, isCurrentFrame) => {
   return nonTenthFrameStyles;
 };
 
-const commonStyes = {
-  alignItems: 'center',
+const commonStyes: ViewStyle = {
+  alignItems: 'center' as const,
   borderWidth: 0.5,
-  borderColor: 'black',
 };
 
-const nonTenthFrameStyles = StyleSheet.create({
+const nonTenthFrameStyles = StyleSheet.create<FrameStyles>({
   container: {
     ...commonStyes,
     flex: 1,
@@ -64,7 +70,7 @@ const nonTenthFrameStyles = StyleSheet.create({
   frame: {},
 });
 
-const tenthFramestyles = StyleSheet.create({
+const tenthFramestyles = StyleSheet.create<FrameStyles>({
   container: {
     ...commonStyes,
     flex: 1.5,
@@ -72,22 +78,24 @@ const tenthFramestyles = StyleSheet.create({
   frame: {},
 });
 
-const currentFrameCommonStyles = {
+const currentFrameCommonStyles: ViewStyle = {
   backgroundColor: 'grey',
 };
 
-const nonTenthCurrentFrameStyles = StyleSheet.create({
+const nonTenthCurrentFrameStyles = StyleSheet.create<FrameStyles>({
   container: {
     ...commonStyes,
     ...currentFrameCommonStyles,
     flex: 1,
   },
+  frame: {},
 });
 
-const tenthCurrentFrameStyles = StyleSheet.create({
+const tenthCurrentFrameStyles = StyleSheet.create<FrameStyles>({
   container: {
     ...commonStyes,
     ...currentFrameCommonStyles,
     flex: 1.5,
   },
+  frame: {},
 });

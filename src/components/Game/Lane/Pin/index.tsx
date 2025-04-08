@@ -4,22 +4,25 @@ import PinDown from './PinDown';
 import PinUp from './PinUp';
 import { pinDiameter } from '../../../../utils';
 import { useGameStore } from '../../../../store/game';
+import type { Pin as PinType } from '../../../../models/pin';
 
-export const Pin = ({ pin = {} }) => {
+interface PinProps {
+  pin: PinType;
+}
+
+export const PinComponent = ({ pin }: PinProps) => {
   const { onPinPress } = useGameStore();
-  const { down } = pin;
+  const { isDown, position } = pin;
   return (
     <TouchableOpacity
       style={styles.container}
       activeOpacity={1}
-      onPress={() => onPinPress(pin)}
+      onPress={() => onPinPress({ position, isDown })}
     >
-      {down ? <PinDown /> : <PinUp />}
+      {isDown ? <PinDown /> : <PinUp />}
     </TouchableOpacity>
   );
 };
-
-export default Pin;
 
 const styles = StyleSheet.create({
   container: {

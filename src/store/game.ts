@@ -3,8 +3,8 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
-import { Frame, Roll } from '../../models/frame';
-import { calculateFrameScore, isFrameComplete, isSpare, isStrike } from '../../utils/scoring';
+import { Frame, Roll } from '../models/frame';
+import { calculateFrameScore, isFrameComplete, isSpare, isStrike } from '../utils/scoring';
 
 interface GameStore {
   frames: Frame[];

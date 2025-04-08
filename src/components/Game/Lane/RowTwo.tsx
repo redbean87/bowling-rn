@@ -1,8 +1,13 @@
 import { StyleSheet, View } from 'react-native';
 
-import Pin from './Pin';
+import { PinComponent as Pin } from './Pin';
+import type { Pin as PinType } from '../../../models/pin';
 
-const Two = ({ pins = [] }) => {
+interface RowTwoProps {
+  pins: PinType[];
+}
+
+const Two = ({ pins = [] }: RowTwoProps) => {
   const [pinTwo, pinThree] = pins;
   return (
     <View style={styles.container}>
@@ -25,11 +30,14 @@ export default Two;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: '25%',
   },
   column: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
   },
 });
