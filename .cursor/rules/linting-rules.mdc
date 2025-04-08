@@ -3,12 +3,6 @@ description:
 globs: 
 alwaysApply: true
 ---
-
-# Your rule content
-
-- You can @ files here
-- You can use markdown but dont have to
-
 ---
 description: Linting rules for the React Native project
 globs: ["**/*.{ts,tsx,js,jsx}"]
@@ -36,6 +30,12 @@ alwaysApply: true
 - Handle loading and error states
 - Use proper state management
 - Follow React Native best practices
+- **One component per file rule:**
+  - Each React component must be in its own file
+  - File name must match component name (PascalCase)
+  - Only exception: small, tightly-coupled subcomponents can be in the same file
+  - Example: `Button.tsx` contains only the `Button` component
+  - Example: `ButtonGroup.tsx` can contain both `ButtonGroup` and its internal `Button` components
 
 ## Code Organization
 - Keep imports organized (use import-sorter)
